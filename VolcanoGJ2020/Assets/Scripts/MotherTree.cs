@@ -5,9 +5,11 @@ using UnityEngine;
 public class MotherTree : MonoBehaviour
 {
     // Ressources
+    public int waters = 0;
+    public int minerals = 0;
 
 
-    
+
 
     // Start is called before the first frame update
     void Start()
