@@ -5,10 +5,7 @@ using UnityEngine;
 public class Tree : MonoBehaviour
 {
     List<Tree> connectedTree;
-
-
-
-
+    public float effectRadius = 20f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +16,11 @@ public class Tree : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(this.transform.position, effectRadius);
     }
 }
