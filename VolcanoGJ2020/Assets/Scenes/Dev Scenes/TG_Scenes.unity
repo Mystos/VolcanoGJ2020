@@ -192,8 +192,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.044445038
-        value: 0.36249924
+        time: 0
+        value: 0.3000084
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -232,11 +232,11 @@ LineRenderer:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 5
+    numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
     textureMode: 1
-    shadowBias: 0.49
+    shadowBias: 0
     generateLightingData: 1
   m_UseWorldSpace: 0
   m_Loop: 0
@@ -266,6 +266,8 @@ GameObject:
   - component: {fileID: 282106215}
   - component: {fileID: 282106214}
   - component: {fileID: 282106213}
+  - component: {fileID: 282106218}
+  - component: {fileID: 282106217}
   m_Layer: 0
   m_Name: MotherTree
   m_TagString: Untagged
@@ -342,12 +344,55 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282106212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.79, y: 0.37, z: 0}
+  m_LocalPosition: {x: 0, y: 0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &282106217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282106212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4faf9a7ce827d4997a5e0a2339162f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabTree: {fileID: 0}
+  waterPuddle: 20
+  waterPond: 60
+  waterLake: 100
+  oxides: 20
+  halogens: 60
+  nitrates: 100
+  treeRadiusEarth: 20
+  treeRadiusSuperMineral: 40
+  treeRadiusSand: 10
+  rootWaterCost: 0
+  rootMineralCost: 0
+  treeWaterCost: 5
+  treeMineralCost: 5
+  sanitizerWaterCost: 7
+  sanitizerMineralCost: 3
+  shieldWaterCost: 3
+  shieldMineralCost: 7
+--- !u!114 &282106218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282106212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b83dde6e47348904e9652b119a6e1621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectRadius: 20
 --- !u!1 &557714188
 GameObject:
   m_ObjectHideFlags: 0
