@@ -32,9 +32,11 @@ public class RootManager : MonoBehaviour
 
             if (Physics.Raycast(ray, out treeHit, 100000, treeLayer))
             {
+                Tree tree = treeHit.transform.gameObject.GetComponentInParent<Tree>();
+                RootHandle rootHandle = treeHit.transform.gameObject.GetComponentInParent<RootHandle>();
                 if (isPlacing)
                 {
-                    if ((placingFromTree && treeHit.transform == source) == false)
+                    if ((placingFromTree && tree.transform == source) == false)
                     {
                         PlaceRoot(treeHit.point, source.position);
                         isPlacing = false;
@@ -43,9 +45,18 @@ public class RootManager : MonoBehaviour
                 else
                 {
                     isPlacing = true;
-                    Tree tree = treeHit.transform.gameObject.GetComponentInParent<Tree>();
-                    source = tree.transform;
-                    placingFromTree = true;
+                    if (tree != null)
+                    {
+                        source = tree.transform;
+                        placingFromTree = true;
+                    }
+                    else if (rootHandle != null)
+                    {
+                        source = rootHandle.transform;
+                        placingFromTree = true;
+                    }
+                    else
+                        Debug.LogError("Hit object has no Rree or RootHandle component");
                 }
 
             }
@@ -72,7 +83,7 @@ public class RootManager : MonoBehaviour
 
     private void PlaceRoot(Vector3 start, Vector3 end)
     {
-        GameObject rootGo = Instantiate(rootPrefab, start, Quaternion.identity);
+        GameObject rootGo = Instantiate(rootPrefab, Vector3.zero, Quaternion.identity);
         Root root = rootGo.GetComponent<Root>();
         root.TraceRoot(start, end);
         Instantiate(rootHandlePrefab, end, Quaternion.identity);
