@@ -12,4 +12,18 @@ public class Root : MonoBehaviour
 
     }
 
+    public void TraceRoot(Vector3 start, Vector3 end)
+    {
+        line.positionCount = 2;
+        line.SetPosition(0, start);
+        line.SetPosition(1, end);
+    }
+
+    public void ProlongateRoot(Vector3 newPos)
+    {
+        int k = line.positionCount;
+        line.positionCount = k + 1;
+        line.SetPosition(k, newPos);
+    }
+
 }
