@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class RootManager : MonoBehaviour
 {
-    GameObject rootPrefab;
+    public LayerMask treeLayer;
+    public GameObject rootPrefab;
+    public GameObject rootHandlePrefab;
     public Camera camera;
+
+    //Root building
+    bool isPlacing = false;
+    Tree sourceTree;
 
     // Start is called before the first frame update
     void Start()
@@ -21,11 +27,16 @@ public class RootManager : MonoBehaviour
             RaycastHit hit;
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit,100000, treeLayer))
             {
+                
+                GameObject treeGo = hit.transform.gameObject;
                 Transform objectHit = hit.transform;
+
                 Debug.Log("Object found : " + objectHit.gameObject);
                 GameObject rootGo = Instantiate(rootPrefab, hit.point, Quaternion.identity);
+                Root root = rootGo.GetComponent<Root>();
+
                 // Do something with the object that was hit by the raycast.
             }
         }
