@@ -14,6 +14,7 @@ public class RootManager : MonoBehaviour
     bool isPlacing = false;
     bool placingFromTree = false;
     Transform source;
+    RootHandle lastHandle;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +37,7 @@ public class RootManager : MonoBehaviour
                 RootHandle rootHandle = treeHit.transform.gameObject.GetComponentInParent<RootHandle>();
                 if (isPlacing)
                 {
-                    if ((placingFromTree && tree.transform == source) == false)
+                    if ((placingFromTree && tree.transform == source) == false && !tree.isConnected)
                     {
                         PlaceRoot(treeHit.point, source.position);
                         isPlacing = false;
@@ -53,7 +54,8 @@ public class RootManager : MonoBehaviour
                     else if (rootHandle != null)
                     {
                         source = rootHandle.transform;
-                        placingFromTree = true;
+                        lastHandle = rootHandle;
+                        placingFromTree = false;
                     }
                     else
                         Debug.LogError("Hit object has no Rree or RootHandle component");
@@ -73,7 +75,11 @@ public class RootManager : MonoBehaviour
                     }
                     else
                     {
-                        //sourceRoot.ProlongateRoot(groundHit.point);
+                        //PlaceRoot(lastHandle.transform.position, groundHit.point);
+                        lastHandle.sourceRoot.ProlongateRoot(groundHit.point);
+                        RootHandle handle = Instantiate(rootHandlePrefab, groundHit.point, Quaternion.identity).GetComponent<RootHandle>();
+                        handle.sourceRoot = lastHandle.sourceRoot;
+                        Destroy(lastHandle.gameObject);
                     }
                     isPlacing = false;
                 }
@@ -83,9 +89,9 @@ public class RootManager : MonoBehaviour
 
     private void PlaceRoot(Vector3 start, Vector3 end)
     {
-        GameObject rootGo = Instantiate(rootPrefab, Vector3.zero, Quaternion.identity);
-        Root root = rootGo.GetComponent<Root>();
+        Root root = Instantiate(rootPrefab, Vector3.zero, Quaternion.identity).GetComponent<Root>();
         root.TraceRoot(start, end);
-        Instantiate(rootHandlePrefab, end, Quaternion.identity);
+        RootHandle handle = Instantiate(rootHandlePrefab, end, Quaternion.identity).GetComponent<RootHandle>();
+        handle.sourceRoot = root;
     }
 }
