@@ -16,7 +16,7 @@ public class Tree : MonoBehaviour
         Radius = GameManager.Instance.treeRadiusEarth;
         for (int i = 0; i < cols.Length; i++)
         {
-            if (cols[i].gameObject.tag == GameManager.Instance.saltGroundTag)
+            if (cols[i].gameObject.tag == GameManager.Instance.sandGroundTag)
                 Radius = GameManager.Instance.treeRadiusSand;
         }
         cols = Physics.OverlapSphere(transform.position, GameManager.Instance.superMineralCheckRadius, GameManager.Instance.superMineralLayer);
