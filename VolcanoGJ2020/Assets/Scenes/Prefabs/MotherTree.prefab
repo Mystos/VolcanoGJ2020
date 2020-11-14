@@ -136,7 +136,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.5960751, g: 0.83816, b: 0.8962264, a: 1}
-  m_Intensity: 3
+  m_Intensity: 1
   m_Range: 50
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -618,7 +618,7 @@ Transform:
   m_GameObject: {fileID: 9128932218613544492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.34, y: 0, z: -27.75}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.13521, y: 0.13521, z: 0.13521}
   m_Children:
   - {fileID: 552411967501134569}
   - {fileID: 3175183028452426421}
@@ -638,4 +638,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isConnected: 0
-  effectRadius: 20
