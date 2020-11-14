@@ -79,6 +79,10 @@ public class BuildManager : MonoBehaviour
 
     private bool CalculateCost(TreeType type)
     {
+        if (GameManager.Instance.cheatActivate)
+            return true;
+
+
         int waterCost = 0;
         int mineralCost = 0;
         switch (type)
