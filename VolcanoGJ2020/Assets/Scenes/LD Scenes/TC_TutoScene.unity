@@ -5853,9 +5853,9 @@ MonoBehaviour:
   oxides: 20
   halogens: 60
   nitrates: 100
-  treeRadiusEarth: 5
-  treeRadiusSuperMineral: 10
-  treeRadiusSand: 3
+  treeRadiusEarth: 10
+  treeRadiusSuperMineral: 20
+  treeRadiusSand: 5
   rootWaterCost: 0
   rootMineralCost: 0
   treeWaterCost: 5
