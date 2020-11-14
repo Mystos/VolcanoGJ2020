@@ -2474,7 +2474,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198573157}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 159.4, y: 0, z: -187}
+  m_LocalPosition: {x: -127.3, y: 0, z: -250.07}
   m_LocalScale: {x: 50, y: 1, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4936,7 +4936,17 @@ PrefabInstance:
     - target: {fileID: 5120149803603304868, guid: 6fedef5a912fffc4595665c61e57b37e,
         type: 3}
       propertyPath: maxY
-      value: 60
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120149803603304868, guid: 6fedef5a912fffc4595665c61e57b37e,
+        type: 3}
+      propertyPath: minRotX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120149803603304868, guid: 6fedef5a912fffc4595665c61e57b37e,
+        type: 3}
+      propertyPath: maxRotX
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 5120149803603304869, guid: 6fedef5a912fffc4595665c61e57b37e,
         type: 3}
@@ -10443,6 +10453,7 @@ MonoBehaviour:
   superMineralCheckRadius: 5
   water: 1000
   minerals: 1000
+  cheatActivate: 0
   waterPuddle: 20
   waterPond: 60
   waterLake: 100
@@ -10460,6 +10471,7 @@ MonoBehaviour:
   sanitizerMineralCost: 3
   shieldWaterCost: 3
   shieldMineralCost: 7
+  saltFactor: 2
 --- !u!1001 &846312048
 PrefabInstance:
   m_ObjectHideFlags: 0
