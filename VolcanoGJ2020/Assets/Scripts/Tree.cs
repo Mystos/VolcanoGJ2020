@@ -43,6 +43,6 @@ public class Tree : MonoBehaviour
         if (GameManager.Instance == null)
             return;
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, GameManager.Instance.treeRadiusEarth);
+        Gizmos.DrawWireSphere(transform.position, Radius);
     }
 }
