@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     [Header("Current Ressources")]
     public uint water = 0;
     public uint minerals = 0;
-
+    public bool cheatActivate = false;
     // Ressources stats
 
     [Header("Water")]
