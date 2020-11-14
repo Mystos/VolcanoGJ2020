@@ -91,8 +91,7 @@ public class RootManager : MonoBehaviour
                 }
                 else if (hit.transform.gameObject.tag == GameManager.Instance.groundTag ||
                     hit.transform.gameObject.tag == GameManager.Instance.sandGroundTag ||
-                    hit.transform.gameObject.tag == GameManager.Instance.saltGroundTag ||
-                    hit.transform.gameObject.tag == GameManager.Instance.superMineralTag)
+                    hit.transform.gameObject.tag == GameManager.Instance.saltGroundTag)
 
                 {
                     if (isPlacing)
