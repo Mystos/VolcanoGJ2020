@@ -7686,9 +7686,15 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 1024
+  treeLayer:
+    serializedVersion: 2
+    m_Bits: 0
   superMineralLayer:
     serializedVersion: 2
     m_Bits: 2048
+  fireBallLayer:
+    serializedVersion: 2
+    m_Bits: 0
   groundTag: ground
   treeTag: tree
   rootHandleTag: rootHandle
@@ -7709,10 +7715,12 @@ MonoBehaviour:
   treeRadiusEarth: 10
   treeRadiusSuperMineral: 20
   treeRadiusSand: 5
+  sanitizeRadius: 15
+  shieldRadius: 15
   rootWaterCost: 0
   rootMineralCost: 0
-  treeWaterCost: 5
-  treeMineralCost: 5
+  cuttingWaterCost: 5
+  cuttingMineralCost: 5
   sanitizerWaterCost: 7
   sanitizerMineralCost: 3
   shieldWaterCost: 3
@@ -15490,7 +15498,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "I can also cancel my \nroots by right clicking"
+  m_text: "Right click to cancel a \nnew tree's growth"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
