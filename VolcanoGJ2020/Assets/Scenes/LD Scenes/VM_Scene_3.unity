@@ -10680,9 +10680,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4faf9a7ce827d4997a5e0a2339162f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundLayers:
+  groundLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
+  superMineralLayer:
+    serializedVersion: 2
+    m_Bits: 0
   groundTag: ground
   treeTag: tree
   rootHandleTag: rootHandle
@@ -14394,8 +14397,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135719449}
-  m_LocalRotation: {x: 0.5510519, y: 0.44310474, z: -0.44310474, w: 0.5510519}
-  m_LocalPosition: {x: 2.6537056, y: 11.772667, z: 19.87022}
+  m_LocalRotation: {x: 0.19687852, y: 0.758044, z: -0.2669817, w: 0.56154144}
+  m_LocalPosition: {x: -4.423707, y: 19.157692, z: 18.298674}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -14706,7 +14709,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20636
+  m_Name: pb_Mesh46166
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
