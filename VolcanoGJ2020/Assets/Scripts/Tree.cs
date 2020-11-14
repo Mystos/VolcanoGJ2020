@@ -19,7 +19,7 @@ public class Tree : MonoBehaviour
             if (cols[i].gameObject.tag == GameManager.Instance.saltGroundTag)
                 Radius = GameManager.Instance.treeRadiusSand;
         }
-        cols = Physics.OverlapSphere(transform.position, GameManager.Instance.treeRadiusSuperMineral, GameManager.Instance.superMineralLayer);
+        cols = Physics.OverlapSphere(transform.position, GameManager.Instance.superMineralCheckRadius, GameManager.Instance.superMineralLayer);
         if (cols.Length > 0)
             Radius = GameManager.Instance.treeRadiusSuperMineral;
     }
@@ -42,7 +42,7 @@ public class Tree : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, Radius);
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, GameManager.Instance.treeRadiusSuperMineral);
+        Gizmos.DrawWireSphere(transform.position, GameManager.Instance.superMineralCheckRadius);
     }
 
     public enum TreeType
