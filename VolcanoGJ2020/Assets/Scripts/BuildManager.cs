@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Tree;
 
 public class BuildManager : MonoBehaviour
 {
@@ -42,23 +43,25 @@ public class BuildManager : MonoBehaviour
     public void BuildTree(int type)
     {
         GameObject treePrefab = null;
-        switch (type)
+        TreeType eType = (TreeType)type;
+        switch (eType)
         {
-            case 0:
+            case TreeType.Cutting:
                 treePrefab = cuttingPrefab;
                 break;
-            case 1:
+            case TreeType.Shield:
                 treePrefab = shieldPrefab;
                 break;
-            case 2:
+            case TreeType.Sanitizer:
                 treePrefab = sanitizerPrefab;
-                break;
-            default:
                 break;
         }
         if (treePrefab != null)
         {
-            Tree tree = Instantiate(treePrefab, buildPosition, Quaternion.identity).GetComponent<Tree>();
+            if (CalculateCost(eType))
+            {
+                Tree tree = Instantiate(treePrefab, buildPosition, Quaternion.identity).GetComponent<Tree>();
+            }
         }
         if (onTreePlaced != null)
             onTreePlaced.Invoke();
@@ -72,6 +75,42 @@ public class BuildManager : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    private bool CalculateCost(TreeType type)
+    {
+        int waterCost = 0;
+        int mineralCost = 0;
+        switch (type)
+        {
+            case TreeType.Cutting:
+                waterCost = GameManager.Instance.treeWaterCost;
+                mineralCost = GameManager.Instance.treeMineralCost;
+                break;
+            case TreeType.Shield:
+                waterCost = GameManager.Instance.shieldWaterCost;
+                mineralCost = GameManager.Instance.shieldMineralCost;
+                break;
+            case TreeType.Sanitizer:
+                waterCost = GameManager.Instance.sanitizerWaterCost;
+                mineralCost = GameManager.Instance.sanitizerMineralCost;
+                break;
+        }
+
+        int waterFinalCost = (int)GameManager.Instance.water - waterCost;
+        int mineralsFinalCost = (int)GameManager.Instance.minerals - mineralCost;
+
+        if(waterFinalCost >= 0 && mineralsFinalCost >= 0)
+        {
+            // If true we return the new current ressources
+            GameManager.Instance.water = (uint)waterFinalCost;
+            GameManager.Instance.minerals = (uint)mineralsFinalCost;
+            return true;
+        }
+
+        // The player didn't had enough money
+        return false;
+
     }
 
 }
