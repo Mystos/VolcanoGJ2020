@@ -75,7 +75,9 @@ public class RootManager : MonoBehaviour
                     {
                         selectedSource = rootHandle.transform;
                         lastHandle = rootHandle;
-                        UpdateSelectionEffect(selectedSource.position);
+                        Tree tree = lastHandle.sourceRoot.connectedTree;
+
+                        UpdateSelectionEffect(tree.transform.position, radiusFactor * tree.Radius * new Vector3(1, 0, 1));
                         buildManager.Show(selectedSource.position, Input.mousePosition);
 
                         if (!isPlacing)
@@ -129,7 +131,7 @@ public class RootManager : MonoBehaviour
 
                         if (succed)
                         {
-                            UpdateSelectionEffect(selectedSource.position);
+                            //UpdateSelectionEffect(selectedSource.position);
                             placingFromTree = false;
                             isPlacing = true;
                             buildManager.Show(selectedSource.position, Input.mousePosition);
