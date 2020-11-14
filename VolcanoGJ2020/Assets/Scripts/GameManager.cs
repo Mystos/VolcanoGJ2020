@@ -4,28 +4,45 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Set up")]
-    public GameObject prefabTree;
+    public static GameManager Instance;
 
-    // Ressources
+    [Header("Set up")]
+    public LayerMask groundLayer;
+    public LayerMask superMineralLayer;
+    public string groundTag = "ground";
+    public string treeTag = "tree";
+    public string rootHandleTag = "rootHandle";
+    public string saltGroundTag = "saltGround";
+    public string superMineralTag = "superMineral";
+    public string sandGroundTag = "sandGround";
+    public float superMineralCheckRadius = 5f;
+
+    // Current Ressources
+    [Space]
+    [Header("Current Ressources")]
+    public uint water = 0;
+    public uint minerals = 0;
+    public bool cheatActivate = false;
+    // Ressources stats
+
     [Header("Water")]
     [Space]
-    [Header("Ressources")]
+    [Header("Ressources stats")]
     public int waterPuddle = 20;
     public int waterPond = 60;
-    public int waterLake= 100;
+    public int waterLake = 100;
+
     [Header("Minerals")]
-    [Space]
     public int oxides = 20;
     public int halogens = 60;
     public int nitrates = 100;
+
     [Header("Trees")]
-    [Space]
     public int treeRadiusEarth = 20;
     public int treeRadiusSuperMineral = 40;
     public int treeRadiusSand = 10;
+
     [Header("Cost")]
-    [Space]
     public int rootWaterCost = 0;
     public int rootMineralCost = 0;
     public int treeWaterCost = 5;
@@ -34,10 +51,25 @@ public class GameManager : MonoBehaviour
     public int sanitizerMineralCost = 3;
     public int shieldWaterCost = 3;
     public int shieldMineralCost = 7;
+    public float saltFactor = 2f;
+
 
     // Private Variable
-    private Tree motherTree;
+    internal Tree motherTree;
     private List<Tree> listTree;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -47,29 +79,12 @@ public class GameManager : MonoBehaviour
         listTree.Add(motherTree);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void AddTree(Tree tree)
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!listTree.Contains(tree))
         {
-            RaycastHit hit;
-
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
-            {
-
-                foreach(Tree tree in listTree)
-                {
-                    float distanceToClick = (hit.point - tree.gameObject.transform.position).magnitude;
-                    if (distanceToClick < tree.effectRadius)
-                    {
-                        GameObject go = GameObject.Instantiate(prefabTree, hit.point, Quaternion.identity, null);
-                        listTree.Add(go.GetComponent<Tree>());
-                        break;
-                    }
-                }
-
-
-            }
+            listTree.Add(tree);
         }
     }
 }

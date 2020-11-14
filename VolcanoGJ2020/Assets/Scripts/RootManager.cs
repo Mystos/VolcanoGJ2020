@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class RootManager : MonoBehaviour
 {
-    public Camera camera;
     public BuildManager buildManager;
 
     [Header("Radius renderer")]
@@ -16,22 +15,20 @@ public class RootManager : MonoBehaviour
     public GameObject rootPrefab;
     public GameObject rootHandlePrefab;
 
-    private string groundTag = "ground";
-    private string treeTag = "tree";
-    private string rootHandleTag = "rootHandle";
-
+    private Camera camera;
     //Root building
     bool isPlacing = false;
     bool placingFromTree = false;
     Transform selectedSource;
     RootHandle lastHandle;
+    private float offset = 0.2f;
 
     // Start is called before the first frame update
     void Start()
     {
         ClearSelection();
         buildManager.onTreePlaced += TreePlaced;
-
+        camera = FindObjectOfType<Camera>();
     }
 
     // Update is called once per frame
@@ -39,8 +36,7 @@ public class RootManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            radiusRenderer.SetActive(false);
-            buildManager.Hide();
+            ClearSelection();
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -55,14 +51,14 @@ public class RootManager : MonoBehaviour
             {
                 buildManager.Hide();
 
-                if (hit.transform.gameObject.tag == treeTag)
+                if (hit.transform.gameObject.tag == GameManager.Instance.treeTag)
                 {
 
                     Tree tree = hit.transform.gameObject.GetComponentInParent<Tree>();
                     if (tree != null)
                     {
                         selectedSource = tree.transform;
-                        UpdateSelectionEffect(selectedSource.position, radiusFactor * new Vector3(tree.effectRadius, 0, tree.effectRadius));
+                        UpdateSelectionEffect(selectedSource.position, radiusFactor * tree.Radius * new Vector3(1, 0, 1));
                         if (!isPlacing || (isPlacing == true && placingFromTree == false))
                         {
                             isPlacing = true;
@@ -72,14 +68,16 @@ public class RootManager : MonoBehaviour
                     else
                         Debug.LogError("Hit object has no Tree component");
                 }
-                else if (hit.transform.gameObject.tag == rootHandleTag)
+                else if (hit.transform.gameObject.tag == GameManager.Instance.rootHandleTag)
                 {
                     RootHandle rootHandle = hit.transform.gameObject.GetComponentInParent<RootHandle>();
                     if (rootHandle != null)
                     {
                         selectedSource = rootHandle.transform;
                         lastHandle = rootHandle;
-                        UpdateSelectionEffect(selectedSource.position);
+                        Tree tree = lastHandle.sourceRoot.connectedTree;
+
+                        UpdateSelectionEffect(tree.transform.position, radiusFactor * tree.Radius * new Vector3(1, 0, 1));
                         buildManager.Show(selectedSource.position, Input.mousePosition);
 
                         if (!isPlacing)
@@ -91,14 +89,23 @@ public class RootManager : MonoBehaviour
                     else
                         Debug.LogError("Hit object has no RootHandle component");
                 }
-                else if (hit.transform.gameObject.tag == groundTag)
+                else if (hit.transform.gameObject.tag == GameManager.Instance.groundTag ||
+                    hit.transform.gameObject.tag == GameManager.Instance.sandGroundTag ||
+                    hit.transform.gameObject.tag == GameManager.Instance.saltGroundTag)
+
                 {
                     if (isPlacing)
                     {
+                        bool succed = false;
                         if (placingFromTree)
                         {
-                            PlaceRoot(selectedSource.position, hit.point);
-
+                            Tree tree = selectedSource.GetComponent<Tree>();
+                            if (tree.InRange(hit.point))
+                            {
+                                Root root = PlaceRoot(selectedSource.position, hit.point);
+                                root.connectedTree = tree;
+                                succed = true;
+                            }
                             //Root root = Instantiate(rootPrefab, Vector3.zero, Quaternion.identity).GetComponent<Root>();
                             //root.TraceRoot(start + Vector3.up * 0.8f, end + Vector3.up * 0.8f);
                             //RootHandle handle = Instantiate(rootHandlePrefab, end, Quaternion.identity).GetComponent<RootHandle>();
@@ -108,33 +115,41 @@ public class RootManager : MonoBehaviour
                         }
                         else
                         {
-                            lastHandle.sourceRoot.ProlongateRoot(hit.point + Vector3.up * 0.8f);
-                            RootHandle handle = Instantiate(rootHandlePrefab, hit.point, Quaternion.identity).GetComponent<RootHandle>();
-                            handle.sourceRoot = lastHandle.sourceRoot;
-                            Destroy(lastHandle.gameObject);
-                            selectedSource = handle.transform;
-                            lastHandle = handle;
-
+                            Tree tree = lastHandle.sourceRoot.connectedTree;
+                            if (tree.InRange(hit.point))
+                            {
+                                lastHandle.sourceRoot.ProlongateRoot(hit.point + Vector3.up * offset);
+                                RootHandle handle = Instantiate(rootHandlePrefab, hit.point, Quaternion.identity).GetComponent<RootHandle>();
+                                handle.sourceRoot = lastHandle.sourceRoot;
+                                Destroy(lastHandle.gameObject);
+                                selectedSource = handle.transform;
+                                lastHandle = handle;
+                                succed = true;
+                            }
                         }
-                        UpdateSelectionEffect(selectedSource.position);
 
-                        placingFromTree = false;
-                        isPlacing = true;
-                        buildManager.Show(selectedSource.position, Input.mousePosition);
+                        if (succed)
+                        {
+                            //UpdateSelectionEffect(selectedSource.position);
+                            placingFromTree = false;
+                            isPlacing = true;
+                            buildManager.Show(selectedSource.position, Input.mousePosition);
+                        }
                     }
                 }
             }
         }
     }
 
-    private void PlaceRoot(Vector3 start, Vector3 end)
+    private Root PlaceRoot(Vector3 start, Vector3 end)
     {
         Root root = Instantiate(rootPrefab, Vector3.zero, Quaternion.identity).GetComponent<Root>();
-        root.TraceRoot(start + Vector3.up * 0.8f, end + Vector3.up * 0.8f);
+        root.TraceRoot(start + Vector3.up * offset, end + Vector3.up * offset);
         RootHandle handle = Instantiate(rootHandlePrefab, end, Quaternion.identity).GetComponent<RootHandle>();
         handle.sourceRoot = root;
         selectedSource = handle.transform;
         lastHandle = handle;
+        return root;
     }
 
     private void ClearSelection()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Tree;
 
 public class BuildManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class BuildManager : MonoBehaviour
 
     public delegate void OnPlaceTree();
     public event OnPlaceTree onTreePlaced;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,26 +44,29 @@ public class BuildManager : MonoBehaviour
     public void BuildTree(int type)
     {
         GameObject treePrefab = null;
-        switch (type)
+        TreeType eType = (TreeType)type;
+        switch (eType)
         {
-            case 0:
+            case TreeType.Cutting:
                 treePrefab = cuttingPrefab;
                 break;
-            case 1:
+            case TreeType.Shield:
                 treePrefab = shieldPrefab;
                 break;
-            case 2:
+            case TreeType.Sanitizer:
                 treePrefab = sanitizerPrefab;
-                break;
-            default:
                 break;
         }
         if (treePrefab != null)
         {
-            Tree tree = Instantiate(treePrefab, buildPosition, Quaternion.identity).GetComponent<Tree>();
+            if (CalculateCost(eType))
+            {
+                Tree tree = Instantiate(treePrefab, buildPosition, Quaternion.identity).GetComponent<Tree>();
+                if (onTreePlaced != null)
+                    onTreePlaced.Invoke();
+            }
         }
-        if (onTreePlaced != null)
-            onTreePlaced.Invoke();
+
     }
 
     public bool CheckHovering(Vector2 mousePosition)
@@ -74,5 +79,60 @@ public class BuildManager : MonoBehaviour
             return false;
     }
 
+    private bool CalculateCost(TreeType type)
+    {
+        if (GameManager.Instance.cheatActivate)
+            return true;
+
+        int waterCost = 0;
+        int mineralCost = 0;
+        switch (type)
+        {
+            case TreeType.Cutting:
+                waterCost = GameManager.Instance.treeWaterCost;
+                mineralCost = GameManager.Instance.treeMineralCost;
+                break;
+            case TreeType.Shield:
+                waterCost = GameManager.Instance.shieldWaterCost;
+                mineralCost = GameManager.Instance.shieldMineralCost;
+                break;
+            case TreeType.Sanitizer:
+                waterCost = GameManager.Instance.sanitizerWaterCost;
+                mineralCost = GameManager.Instance.sanitizerMineralCost;
+                break;
+        }
+
+        if (IsSaltGrounded())
+        {
+            waterCost = Mathf.CeilToInt(waterCost * GameManager.Instance.saltFactor);
+            mineralCost = Mathf.CeilToInt(mineralCost * GameManager.Instance.saltFactor);
+        }
+
+        int waterFinalAmount = (int)GameManager.Instance.water - waterCost;
+        int mineralsFinalAmount = (int)GameManager.Instance.minerals - mineralCost;
+
+        if (waterFinalAmount >= 0 && mineralsFinalAmount >= 0)
+        {
+            // If true we return the new current ressources
+            GameManager.Instance.water = (uint)waterFinalAmount;
+            GameManager.Instance.minerals = (uint)mineralsFinalAmount;
+            return true;
+        }
+
+        // The player didn't had enough money
+        return false;
+
+    }
+
+    public bool IsSaltGrounded()
+    {
+        Collider[] cols = Physics.OverlapSphere(buildPosition, 0.5f, GameManager.Instance.groundLayer);
+        for (int i = 0; i < cols.Length; i++)
+        {
+            if (cols[i].gameObject.tag == GameManager.Instance.saltGroundTag)
+                return true;
+        }
+        return false;
+    }
 }
 
