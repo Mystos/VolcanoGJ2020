@@ -11,12 +11,6 @@ public class Root : MonoBehaviour
 
     public Tree connectedTree { get; set; }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     public void TraceRoot(Vector3 start, Vector3 end)
     {
         var points = PerlinNoise(start, end);
@@ -27,10 +21,6 @@ public class Root : MonoBehaviour
             line.SetPosition(i, points[i]);
         }
         line.SetPosition(line.positionCount - 1, end);
-
-        //line.positionCount = 2;
-        //line.SetPosition(0, start);
-        //line.SetPosition(1, end);
     }
 
     public void ProlongateRoot(Vector3 newPos)

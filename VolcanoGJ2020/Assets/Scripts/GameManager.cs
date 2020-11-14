@@ -88,4 +88,27 @@ public class GameManager : MonoBehaviour
             listTree.Add(tree);
         }
     }
+
+    public void CollectRessource(Ressource ressource)
+    {
+        switch (ressource.type)
+        {
+            case ERessourceType.waterPuddle:
+                break;
+            case ERessourceType.waterPond:
+                break;
+            case ERessourceType.waterLake:
+                break;
+            case ERessourceType.oxides:
+                break;
+            case ERessourceType.halogens:
+                break;
+            case ERessourceType.nitrates:
+                break;
+            case ERessourceType.coeur:
+                break;
+            default:
+                break;
+        }
+    }
 }

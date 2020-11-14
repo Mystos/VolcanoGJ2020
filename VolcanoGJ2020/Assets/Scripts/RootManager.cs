@@ -132,12 +132,21 @@ public class RootManager : MonoBehaviour
                                 //Place root and update connected tree
                                 Root root = Instantiate(rootPrefab, Vector3.zero, Quaternion.identity).GetComponent<Root>();
                                 root.TraceRoot(selectedSource.position + rootOffset, hit.point + rootOffset);
+                                root.connectedTree = tree;
 
-                                CreateRootHandle(hit.point, root, false);
+                                if (hit.transform.gameObject.tag == GameManager.Instance.ressourceTag)
+                                {
+                                    Ressource ressource = hit.transform.GetComponent<Ressource>();
+                                    if (ressource != null)
+                                        GameManager.Instance.CollectRessource(ressource);
+                                }
+                                else
+                                {
+                                    CreateRootHandle(hit.point, root, false);
+                                }
                                 pointInRange = true;
 
-                                //Update root connected tree;
-                                root.connectedTree = tree;
+
                             }
                         }
                         //If placing from root
@@ -183,17 +192,6 @@ public class RootManager : MonoBehaviour
         selectedSource = handle.transform;
         lastHandle = handle;
     }
-
-    //private Root PlaceRoot(Vector3 start, Vector3 end)
-    //{
-    //    Root root = Instantiate(rootPrefab, Vector3.zero, Quaternion.identity).GetComponent<Root>();
-    //    root.TraceRoot(start + Vector3.up * rootOffset, end + Vector3.up * rootOffset);
-    //    RootHandle handle = Instantiate(rootHandlePrefab, end, Quaternion.identity).GetComponent<RootHandle>();
-    //    handle.sourceRoot = root;
-    //    selectedSource = handle.transform;
-    //    lastHandle = handle;
-    //    return root;
-    //}
 
     private void ClearSelection()
     {
