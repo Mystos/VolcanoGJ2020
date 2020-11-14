@@ -4672,7 +4672,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "I can grow my roots in a certain\nrange by left clicking on a tree, \nthen
-    inside the circle.\nThen, I can grow a tree on this\nroot by choosing the dedicated
+    inside the circle.\nThen, I can grow a sprout on this\nroot by choosing the dedicated
     icon."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7686,9 +7686,15 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 1024
+  treeLayer:
+    serializedVersion: 2
+    m_Bits: 0
   superMineralLayer:
     serializedVersion: 2
     m_Bits: 2048
+  fireBallLayer:
+    serializedVersion: 2
+    m_Bits: 0
   groundTag: ground
   treeTag: tree
   rootHandleTag: rootHandle
@@ -7709,10 +7715,12 @@ MonoBehaviour:
   treeRadiusEarth: 10
   treeRadiusSuperMineral: 20
   treeRadiusSand: 5
+  sanitizeRadius: 15
+  shieldRadius: 15
   rootWaterCost: 0
   rootMineralCost: 0
-  treeWaterCost: 5
-  treeMineralCost: 5
+  cuttingWaterCost: 5
+  cuttingMineralCost: 5
   sanitizerWaterCost: 7
   sanitizerMineralCost: 3
   shieldWaterCost: 3
@@ -10781,7 +10789,7 @@ MonoBehaviour:
     drain or i''ll
     pay
 
-    twice the cutting''s
+    twice the sprout''s
 
     price.'
   m_isRightToLeft: 0
@@ -12167,7 +12175,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Sand lowers
 
-    my cuttings''
+    my sprout''s
 
     range.'
   m_isRightToLeft: 0
@@ -15490,7 +15498,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "I can also cancel my \nroots by right clicking"
+  m_text: "Right click to cancel a \nnew tree's growth"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16292,7 +16300,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "I must collect \nminerals and water\nto create cuttings\nand keep growing.\nI
+  m_text: "I must collect \nminerals and water\nto create sprouts\nand keep growing.\nI
     just have to left clic \nto let my root close to \nthe ressources."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -23089,7 +23097,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "There is 3 different \ntypes of tree:\nthe cuttings to expand the roots\nthe
+  m_text: "There is 3 different \ntypes of tree:\nthe sprouts to expand the roots\nthe
     shield to prevent disasters\nthe drain to clear the salty grounds"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
