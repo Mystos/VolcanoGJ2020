@@ -16,6 +16,7 @@ public class BuildManager : MonoBehaviour
     public delegate void OnPlaceTree();
     public event OnPlaceTree onTreePlaced;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,10 +62,11 @@ public class BuildManager : MonoBehaviour
             if (CalculateCost(eType))
             {
                 Tree tree = Instantiate(treePrefab, buildPosition, Quaternion.identity).GetComponent<Tree>();
+                if (onTreePlaced != null)
+                    onTreePlaced.Invoke();
             }
         }
-        if (onTreePlaced != null)
-            onTreePlaced.Invoke();
+
     }
 
     public bool CheckHovering(Vector2 mousePosition)
@@ -81,7 +83,6 @@ public class BuildManager : MonoBehaviour
     {
         if (GameManager.Instance.cheatActivate)
             return true;
-
 
         int waterCost = 0;
         int mineralCost = 0;
@@ -101,14 +102,20 @@ public class BuildManager : MonoBehaviour
                 break;
         }
 
-        int waterFinalCost = (int)GameManager.Instance.water - waterCost;
-        int mineralsFinalCost = (int)GameManager.Instance.minerals - mineralCost;
+        if (IsSaltGrounded())
+        {
+            waterCost = Mathf.CeilToInt(waterCost * GameManager.Instance.saltFactor);
+            mineralCost = Mathf.CeilToInt(mineralCost * GameManager.Instance.saltFactor);
+        }
 
-        if(waterFinalCost >= 0 && mineralsFinalCost >= 0)
+        int waterFinalAmount = (int)GameManager.Instance.water - waterCost;
+        int mineralsFinalAmount = (int)GameManager.Instance.minerals - mineralCost;
+
+        if (waterFinalAmount >= 0 && mineralsFinalAmount >= 0)
         {
             // If true we return the new current ressources
-            GameManager.Instance.water = (uint)waterFinalCost;
-            GameManager.Instance.minerals = (uint)mineralsFinalCost;
+            GameManager.Instance.water = (uint)waterFinalAmount;
+            GameManager.Instance.minerals = (uint)mineralsFinalAmount;
             return true;
         }
 
@@ -117,5 +124,15 @@ public class BuildManager : MonoBehaviour
 
     }
 
+    public bool IsSaltGrounded()
+    {
+        Collider[] cols = Physics.OverlapSphere(buildPosition, 0.5f, GameManager.Instance.groundLayer);
+        for (int i = 0; i < cols.Length; i++)
+        {
+            if (cols[i].gameObject.tag == GameManager.Instance.saltGroundTag)
+                return true;
+        }
+        return false;
+    }
 }
 
