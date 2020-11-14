@@ -34,33 +34,44 @@ public class RootManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Clear selection if right click
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             ClearSelection();
         }
 
+        //If left click
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            //Cancel click if mouse is hovering build panel
             if (buildManager.gameObject.activeSelf && buildManager.CheckHovering(Input.mousePosition))
                 return;
 
+            //Hit init
             RaycastHit hit;
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
+            //Camera ray casting
             if (Physics.Raycast(ray, out hit))
             {
+                //Disable the building panel
                 buildManager.Hide();
 
+                //If tree was hit
                 if (hit.transform.gameObject.tag == GameManager.Instance.treeTag)
                 {
-
+                    //Get tree
                     Tree tree = hit.transform.gameObject.GetComponentInParent<Tree>();
                     if (tree != null)
                     {
+                        //Select tree
                         selectedSource = tree.transform;
                         UpdateSelectionEffect(selectedSource.position, radiusFactor * tree.Radius * new Vector3(1, 0, 1));
+
+                        //If we are not trying to place root OR we are placing but from rootHandle
                         if (!isPlacing || (isPlacing == true && placingFromTree == false))
                         {
+                            //Then we are placing from a tree
                             isPlacing = true;
                             placingFromTree = true;
                         }
@@ -68,18 +79,27 @@ public class RootManager : MonoBehaviour
                     else
                         Debug.LogError("Hit object has no Tree component");
                 }
+
+                //If root handle was hit
                 else if (hit.transform.gameObject.tag == GameManager.Instance.rootHandleTag)
                 {
+                    //Get rootHandle
                     RootHandle rootHandle = hit.transform.gameObject.GetComponentInParent<RootHandle>();
                     if (rootHandle != null)
                     {
+                        //Update selected source and lastHandle
                         selectedSource = rootHandle.transform;
                         lastHandle = rootHandle;
+
+                        //Get connected tree
                         Tree tree = lastHandle.sourceRoot.connectedTree;
 
+                        //Update selection sprite
                         UpdateSelectionEffect(tree.transform.position, radiusFactor * tree.Radius * new Vector3(1, 0, 1));
+                        //Enable build manager
                         buildManager.Show(selectedSource.position, Input.mousePosition);
 
+                        //If we are not trying to place root then we are placing from a rootHandle
                         if (!isPlacing)
                         {
                             isPlacing = true;
@@ -89,50 +109,61 @@ public class RootManager : MonoBehaviour
                     else
                         Debug.LogError("Hit object has no RootHandle component");
                 }
+
+                //If ground was hit
                 else if (hit.transform.gameObject.tag == GameManager.Instance.groundTag ||
                     hit.transform.gameObject.tag == GameManager.Instance.sandGroundTag ||
                     hit.transform.gameObject.tag == GameManager.Instance.saltGroundTag)
 
                 {
+                    //If we are trying to place root
                     if (isPlacing)
                     {
-                        bool succed = false;
+                        bool pointInRange = false;
+                        //And if placing from tree
                         if (placingFromTree)
                         {
+                            //Gete tree
                             Tree tree = selectedSource.GetComponent<Tree>();
+                            //Check if hit point is in tree range
                             if (tree.InRange(hit.point))
                             {
+                                //Place root and update connected tree
                                 Root root = PlaceRoot(selectedSource.position, hit.point);
                                 root.connectedTree = tree;
-                                succed = true;
+                                pointInRange = true;
                             }
-                            //Root root = Instantiate(rootPrefab, Vector3.zero, Quaternion.identity).GetComponent<Root>();
-                            //root.TraceRoot(start + Vector3.up * 0.8f, end + Vector3.up * 0.8f);
-                            //RootHandle handle = Instantiate(rootHandlePrefab, end, Quaternion.identity).GetComponent<RootHandle>();
-                            //handle.sourceRoot = root;
-                            //selectedSource = handle.transform;
-                            //lastHandle = handle;
                         }
+                        //If placing from root
                         else
                         {
+                            //Get root connected tree
                             Tree tree = lastHandle.sourceRoot.connectedTree;
+                            //If hit point in tree range
                             if (tree.InRange(hit.point))
                             {
+                                //Then plongate root and create handle
                                 lastHandle.sourceRoot.ProlongateRoot(hit.point + Vector3.up * offset);
                                 RootHandle handle = Instantiate(rootHandlePrefab, hit.point, Quaternion.identity).GetComponent<RootHandle>();
                                 handle.sourceRoot = lastHandle.sourceRoot;
+
+                                //Destroy last handle
                                 Destroy(lastHandle.gameObject);
+
+                                //Update selected source and last handle
                                 selectedSource = handle.transform;
                                 lastHandle = handle;
-                                succed = true;
+                                pointInRange = true;
                             }
                         }
 
-                        if (succed)
+                        //If point in range
+                        if (pointInRange)
                         {
-                            //UpdateSelectionEffect(selectedSource.position);
+                            //Then we are placing from rootHandle
                             placingFromTree = false;
                             isPlacing = true;
+                            //Enable build panel
                             buildManager.Show(selectedSource.position, Input.mousePosition);
                         }
                     }
