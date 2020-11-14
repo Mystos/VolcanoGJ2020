@@ -6,6 +6,7 @@ public class Tree : MonoBehaviour
 {
     [HideInInspector] public bool isConnected = false;
     List<Tree> connectedTree;
+    public TreeType type;
 
     public float Radius { get; private set; }
 

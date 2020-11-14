@@ -5,9 +5,8 @@ using UnityEngine;
 public class Root : MonoBehaviour
 {
     public LineRenderer line;
-    public float step = 4;
-    public float amplitude = 4;
-    public GameObject lightPrefab;
+    private float step = 0.5f;
+    private float amplitude = 3;
 
     public Tree connectedTree { get; set; }
 
@@ -31,7 +30,7 @@ public class Root : MonoBehaviour
         line.positionCount = k + points.Length + 1;
         for (int i = 0; i < points.Length; i++)
         {
-            line.SetPosition(i+k, points[i]);
+            line.SetPosition(i + k, points[i]);
         }
         line.SetPosition(line.positionCount - 1, newPos);
 

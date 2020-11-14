@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Set up")]
     public LayerMask groundLayer;
+    public LayerMask treeLayer;
     public LayerMask superMineralLayer;
+    public LayerMask fireBallLayer;
     public string groundTag = "ground";
     public string treeTag = "tree";
     public string rootHandleTag = "rootHandle";
@@ -42,12 +44,14 @@ public class GameManager : MonoBehaviour
     public int treeRadiusEarth = 20;
     public int treeRadiusSuperMineral = 40;
     public int treeRadiusSand = 10;
+    public int sanitizeRadius = 15;
+    public int shieldRadius = 15;
 
     [Header("Cost")]
     public int rootWaterCost = 0;
     public int rootMineralCost = 0;
-    public int treeWaterCost = 5;
-    public int treeMineralCost = 5;
+    public int cuttingWaterCost = 5;
+    public int cuttingMineralCost = 5;
     public int sanitizerWaterCost = 7;
     public int sanitizerMineralCost = 3;
     public int shieldWaterCost = 3;
