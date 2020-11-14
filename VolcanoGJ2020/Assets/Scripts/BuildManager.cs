@@ -16,19 +16,6 @@ public class BuildManager : MonoBehaviour
     public delegate void OnPlaceTree();
     public event OnPlaceTree onTreePlaced;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void Show(Vector3 buildPos, Vector2 panelPos)
     {
         gameObject.SetActive(true);
@@ -66,7 +53,6 @@ public class BuildManager : MonoBehaviour
                     onTreePlaced.Invoke();
             }
         }
-
     }
 
     public bool CheckHovering(Vector2 mousePosition)

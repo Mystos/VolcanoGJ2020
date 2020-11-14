@@ -10,6 +10,7 @@ TagManager:
   - sandGround
   - superMineral
   - saltGround
+  - ressource
   layers:
   - Default
   - TransparentFX
