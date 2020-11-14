@@ -40,12 +40,12 @@ public class CameraController : MonoBehaviour
         {
             pos += panSpeed * Time.deltaTime * -transform.right;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.E))
         {
             rotMain.eulerAngles = new Vector3(rotMain.eulerAngles.x, rotMain.eulerAngles.y + rotSpeed * Time.deltaTime, rotMain.eulerAngles.z);
             rotParent.eulerAngles = new Vector3(rotParent.eulerAngles.x, rotParent.eulerAngles.y + rotSpeed * Time.deltaTime, rotParent.eulerAngles.z);
         }
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.A))
         {
             rotMain.eulerAngles = new Vector3(rotMain.eulerAngles.x, rotMain.eulerAngles.y - rotSpeed * Time.deltaTime, rotMain.eulerAngles.z);
             rotParent.eulerAngles = new Vector3(rotParent.eulerAngles.x, rotParent.eulerAngles.y - rotSpeed * Time.deltaTime, rotParent.eulerAngles.z);
