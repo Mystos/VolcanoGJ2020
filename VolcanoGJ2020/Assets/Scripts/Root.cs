@@ -9,6 +9,8 @@ public class Root : MonoBehaviour
     public float amplitude = 4;
     public GameObject lightPrefab;
 
+    public Tree connectedTree { get; set; }
+
     // Start is called before the first frame update
     void Start()
     {

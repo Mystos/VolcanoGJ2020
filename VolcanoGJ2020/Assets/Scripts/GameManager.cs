@@ -4,28 +4,33 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Set up")]
-    public GameObject prefabTree;
+    public static GameManager Instance;
 
-    // Ressources
-    [Header("Water")]
-    [Space]
+    [Header("Set up")]
+    public LayerMask groundLayers;
+    public string groundTag = "ground";
+    public string treeTag = "tree";
+    public string rootHandleTag = "rootHandle";
+    public string saltGroundTag = "saltGround";
+    public string superMineralTag = "superMineral";
+    public string sandGroundTag = "sandGround";
+
     [Header("Ressources")]
     public int waterPuddle = 20;
     public int waterPond = 60;
     public int waterLake= 100;
+
     [Header("Minerals")]
-    [Space]
     public int oxides = 20;
     public int halogens = 60;
     public int nitrates = 100;
+
     [Header("Trees")]
-    [Space]
     public int treeRadiusEarth = 20;
     public int treeRadiusSuperMineral = 40;
     public int treeRadiusSand = 10;
+
     [Header("Cost")]
-    [Space]
     public int rootWaterCost = 0;
     public int rootMineralCost = 0;
     public int treeWaterCost = 5;
@@ -39,6 +44,16 @@ public class GameManager : MonoBehaviour
     private Tree motherTree;
     private List<Tree> listTree;
 
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogWarning("More than one instance of GameManager found !");
+            return;
+        }
+        Instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,26 +65,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+      
+    }
+
+    public void AddTree(Tree tree)
+    {
+        if (!listTree.Contains(tree))
         {
-            RaycastHit hit;
-
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
-            {
-
-                foreach(Tree tree in listTree)
-                {
-                    float distanceToClick = (hit.point - tree.gameObject.transform.position).magnitude;
-                    if (distanceToClick < tree.effectRadius)
-                    {
-                        GameObject go = GameObject.Instantiate(prefabTree, hit.point, Quaternion.identity, null);
-                        listTree.Add(go.GetComponent<Tree>());
-                        break;
-                    }
-                }
-
-
-            }
+            listTree.Add(tree);
         }
     }
 }
