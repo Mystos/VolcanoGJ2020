@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RootHandle : MonoBehaviour
+public class BuildManager : MonoBehaviour
 {
-    [HideInInspector] public Root sourceRoot;
+    public GameObject selectionMark;
+
+
     // Start is called before the first frame update
     void Start()
     {

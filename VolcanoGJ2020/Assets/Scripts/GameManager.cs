@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Set up")]
     public GameObject prefabTree;
 
     // Ressources
