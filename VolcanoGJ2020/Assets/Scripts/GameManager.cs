@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     [Header("Current Ressources")]
     public uint water = 0;
     public uint minerals = 0;
-
+    public bool cheatActivate = false;
     // Ressources stats
 
     [Header("Water")]
@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     public int sanitizerMineralCost = 3;
     public int shieldWaterCost = 3;
     public int shieldMineralCost = 7;
+    public float saltFactor = 2f;
 
 
     // Private Variable
