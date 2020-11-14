@@ -16,8 +16,11 @@ public class Tree : MonoBehaviour
         Radius = GameManager.Instance.treeRadiusEarth;
         for (int i = 0; i < cols.Length; i++)
         {
-            if (cols[i].gameObject.tag == GameManager.Instance.saltGroundTag)
+            if (cols[i].gameObject.tag == GameManager.Instance.sandGroundTag)
+            {
                 Radius = GameManager.Instance.treeRadiusSand;
+                return;
+            }
         }
         cols = Physics.OverlapSphere(transform.position, GameManager.Instance.superMineralCheckRadius, GameManager.Instance.superMineralLayer);
         if (cols.Length > 0)
@@ -41,6 +44,7 @@ public class Tree : MonoBehaviour
             return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, Radius);
+        Gizmos.DrawWireSphere(transform.position, 0.5f);
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, GameManager.Instance.superMineralCheckRadius);
     }
@@ -51,4 +55,5 @@ public class Tree : MonoBehaviour
         Shield = 1,
         Sanitizer = 2
     }
+
 }
