@@ -10349,9 +10349,10 @@ MonoBehaviour:
   saltGroundTag: saltGround
   superMineralTag: superMineral
   sandGroundTag: sandGround
+  ressourceTag: ressource
   superMineralCheckRadius: 5
-  water: 0
-  minerals: 0
+  water: 50
+  minerals: 50
   cheatActivate: 0
   waterPuddle: 20
   waterPond: 60
