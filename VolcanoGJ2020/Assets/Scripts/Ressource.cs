@@ -5,11 +5,11 @@ using UnityEngine;
 public class Ressource : MonoBehaviour
 {
     public ERessourceType type;
+    public bool Active { get; set; }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-
+        Active = true;
     }
 }
 

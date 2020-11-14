@@ -131,22 +131,23 @@ public class RootManager : MonoBehaviour
                             {
                                 //Place root and update connected tree
                                 Root root = Instantiate(rootPrefab, Vector3.zero, Quaternion.identity).GetComponent<Root>();
-                                root.TraceRoot(selectedSource.position + rootOffset, hit.point + rootOffset);
                                 root.connectedTree = tree;
 
                                 if (hit.transform.gameObject.tag == GameManager.Instance.ressourceTag)
                                 {
+                                    root.TraceRoot(selectedSource.position + rootOffset, hit.point);
                                     Ressource ressource = hit.transform.GetComponent<Ressource>();
                                     if (ressource != null)
                                         GameManager.Instance.CollectRessource(ressource);
+                                    ClearSelection();
+                                    return;
                                 }
                                 else
                                 {
+                                    root.TraceRoot(selectedSource.position + rootOffset, hit.point + rootOffset);
                                     CreateRootHandle(hit.point, root, false);
                                 }
                                 pointInRange = true;
-
-
                             }
                         }
                         //If placing from root
