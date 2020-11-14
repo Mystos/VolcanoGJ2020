@@ -17,7 +17,17 @@ public class GameManager : MonoBehaviour
     public string sandGroundTag = "sandGround";
     public float superMineralCheckRadius = 5f;
 
-    [Header("Ressources")]
+    // Current Ressources
+    [Space]
+    [Header("Current Ressources")]
+    public uint water = 0;
+    public uint minerals = 0;
+
+    // Ressources stats
+
+    [Header("Water")]
+    [Space]
+    [Header("Ressources stats")]
     public int waterPuddle = 20;
     public int waterPond = 60;
     public int waterLake = 100;
@@ -42,18 +52,22 @@ public class GameManager : MonoBehaviour
     public int shieldWaterCost = 3;
     public int shieldMineralCost = 7;
 
+
     // Private Variable
-    private Tree motherTree;
+    internal Tree motherTree;
     private List<Tree> listTree;
 
     private void Awake()
     {
-        if (Instance != null)
+        if (Instance == null)
         {
-            Debug.LogWarning("More than one instance of GameManager found !");
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
             return;
         }
-        Instance = this;
     }
 
     // Start is called before the first frame update

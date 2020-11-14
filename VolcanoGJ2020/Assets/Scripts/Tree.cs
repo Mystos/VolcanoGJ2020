@@ -44,4 +44,11 @@ public class Tree : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, GameManager.Instance.superMineralCheckRadius);
     }
+
+    public enum TreeType
+    {
+        Cutting = 0,
+        Shield = 1,
+        Sanitizer = 2
+    }
 }
