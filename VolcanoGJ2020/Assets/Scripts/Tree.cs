@@ -19,7 +19,7 @@ public class Tree : MonoBehaviour
             if (cols[i].gameObject.tag == GameManager.Instance.saltGroundTag)
                 Radius = GameManager.Instance.treeRadiusSand;
         }
-        cols = Physics.OverlapSphere(transform.position, GameManager.Instance.treeRadiusSuperMineral, GameManager.Instance.superMineralLayer);
+        cols = Physics.OverlapSphere(transform.position, GameManager.Instance.superMineralCheckRadius, GameManager.Instance.superMineralLayer);
         if (cols.Length > 0)
             Radius = GameManager.Instance.treeRadiusSuperMineral;
     }
