@@ -84,27 +84,27 @@ public class BuildManager : MonoBehaviour
         switch (type)
         {
             case TreeType.Cutting:
-                waterCost = GameManager.instance.treeWaterCost;
-                mineralCost = GameManager.instance.treeMineralCost;
+                waterCost = GameManager.Instance.treeWaterCost;
+                mineralCost = GameManager.Instance.treeMineralCost;
                 break;
             case TreeType.Shield:
-                waterCost = GameManager.instance.shieldWaterCost;
-                mineralCost = GameManager.instance.shieldMineralCost;
+                waterCost = GameManager.Instance.shieldWaterCost;
+                mineralCost = GameManager.Instance.shieldMineralCost;
                 break;
             case TreeType.Sanitizer:
-                waterCost = GameManager.instance.sanitizerWaterCost;
-                mineralCost = GameManager.instance.sanitizerMineralCost;
+                waterCost = GameManager.Instance.sanitizerWaterCost;
+                mineralCost = GameManager.Instance.sanitizerMineralCost;
                 break;
         }
 
-        int waterFinalCost = (int)GameManager.instance.water - waterCost;
-        int mineralsFinalCost = (int)GameManager.instance.minerals - mineralCost;
+        int waterFinalCost = (int)GameManager.Instance.water - waterCost;
+        int mineralsFinalCost = (int)GameManager.Instance.minerals - mineralCost;
 
         if(waterFinalCost >= 0 && mineralsFinalCost >= 0)
         {
             // If true we return the new current ressources
-            GameManager.instance.water = (uint)waterFinalCost;
-            GameManager.instance.minerals = (uint)mineralsFinalCost;
+            GameManager.Instance.water = (uint)waterFinalCost;
+            GameManager.Instance.minerals = (uint)mineralsFinalCost;
             return true;
         }
 
