@@ -15,13 +15,13 @@ public class RootManager : MonoBehaviour
     public GameObject rootPrefab;
     public GameObject rootHandlePrefab;
 
-    private Camera camera;
     //Root building
-    bool isPlacing = false;
-    bool placingFromTree = false;
-    Transform selectedSource;
-    RootHandle lastHandle;
-    private float offset = 0.2f;
+    private Camera camera;
+    private bool isPlacing = false;
+    private bool placingFromTree = false;
+    private Transform selectedSource;
+    private RootHandle lastHandle;
+    private Vector3 rootOffset = new Vector3(0, 0.2f, 0);
 
     // Start is called before the first frame update
     void Start()
@@ -113,7 +113,8 @@ public class RootManager : MonoBehaviour
                 //If ground was hit
                 else if (hit.transform.gameObject.tag == GameManager.Instance.groundTag ||
                     hit.transform.gameObject.tag == GameManager.Instance.sandGroundTag ||
-                    hit.transform.gameObject.tag == GameManager.Instance.saltGroundTag)
+                    hit.transform.gameObject.tag == GameManager.Instance.saltGroundTag ||
+                    hit.transform.gameObject.tag == GameManager.Instance.ressourceTag)
 
                 {
                     //If we are trying to place root
@@ -123,15 +124,20 @@ public class RootManager : MonoBehaviour
                         //And if placing from tree
                         if (placingFromTree)
                         {
-                            //Gete tree
+                            //Get tree
                             Tree tree = selectedSource.GetComponent<Tree>();
                             //Check if hit point is in tree range
                             if (tree.InRange(hit.point))
                             {
                                 //Place root and update connected tree
-                                Root root = PlaceRoot(selectedSource.position, hit.point);
-                                root.connectedTree = tree;
+                                Root root = Instantiate(rootPrefab, Vector3.zero, Quaternion.identity).GetComponent<Root>();
+                                root.TraceRoot(selectedSource.position + rootOffset, hit.point + rootOffset);
+
+                                CreateRootHandle(hit.point, root, false);
                                 pointInRange = true;
+
+                                //Update root connected tree;
+                                root.connectedTree = tree;
                             }
                         }
                         //If placing from root
@@ -143,16 +149,8 @@ public class RootManager : MonoBehaviour
                             if (tree.InRange(hit.point))
                             {
                                 //Then plongate root and create handle
-                                lastHandle.sourceRoot.ProlongateRoot(hit.point + Vector3.up * offset);
-                                RootHandle handle = Instantiate(rootHandlePrefab, hit.point, Quaternion.identity).GetComponent<RootHandle>();
-                                handle.sourceRoot = lastHandle.sourceRoot;
-
-                                //Destroy last handle
-                                Destroy(lastHandle.gameObject);
-
-                                //Update selected source and last handle
-                                selectedSource = handle.transform;
-                                lastHandle = handle;
+                                lastHandle.sourceRoot.ProlongateRoot(hit.point + rootOffset);
+                                CreateRootHandle(hit.point, lastHandle.sourceRoot, true);
                                 pointInRange = true;
                             }
                         }
@@ -172,16 +170,30 @@ public class RootManager : MonoBehaviour
         }
     }
 
-    private Root PlaceRoot(Vector3 start, Vector3 end)
+    private void CreateRootHandle(Vector3 point, Root sourceRoot, bool destroyPreviousHandle)
     {
-        Root root = Instantiate(rootPrefab, Vector3.zero, Quaternion.identity).GetComponent<Root>();
-        root.TraceRoot(start + Vector3.up * offset, end + Vector3.up * offset);
-        RootHandle handle = Instantiate(rootHandlePrefab, end, Quaternion.identity).GetComponent<RootHandle>();
-        handle.sourceRoot = root;
+        RootHandle handle = Instantiate(rootHandlePrefab, point, Quaternion.identity).GetComponent<RootHandle>();
+        handle.sourceRoot = sourceRoot;
+
+        //Destroy previous handle
+        if (destroyPreviousHandle)
+            Destroy(lastHandle.gameObject);
+
+        //Update selected source and last handle
         selectedSource = handle.transform;
         lastHandle = handle;
-        return root;
     }
+
+    //private Root PlaceRoot(Vector3 start, Vector3 end)
+    //{
+    //    Root root = Instantiate(rootPrefab, Vector3.zero, Quaternion.identity).GetComponent<Root>();
+    //    root.TraceRoot(start + Vector3.up * rootOffset, end + Vector3.up * rootOffset);
+    //    RootHandle handle = Instantiate(rootHandlePrefab, end, Quaternion.identity).GetComponent<RootHandle>();
+    //    handle.sourceRoot = root;
+    //    selectedSource = handle.transform;
+    //    lastHandle = handle;
+    //    return root;
+    //}
 
     private void ClearSelection()
     {
@@ -204,10 +216,4 @@ public class RootManager : MonoBehaviour
         radiusRenderer.transform.position = position + Vector3.up * 0.2f;
         radiusRenderer.transform.localScale = size;
     }
-
-    private void UpdateSelectionEffect(Vector3 position)
-    {
-        UpdateSelectionEffect(position, new Vector3(2, 0, 2));
-    }
-
 }
