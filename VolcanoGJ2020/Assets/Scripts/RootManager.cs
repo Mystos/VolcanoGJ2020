@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class RootManager : MonoBehaviour
 {
-    public LayerMask treeLayer;
-    public LayerMask groundLayer;
+    public float radiusFactor = 6;
+    public GameObject radiusRenderer;
+
     public GameObject rootPrefab;
     public GameObject rootHandlePrefab;
     public Camera camera;
 
+    private string groundTag = "ground";
+    private string treeTag = "tree";
+    private string rootHandleTag = "rootHandle";
+
     //Root building
     bool isPlacing = false;
     bool placingFromTree = false;
-    Transform source;
+    Transform selectedSource;
     RootHandle lastHandle;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        radiusRenderer.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,61 +32,70 @@ public class RootManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            RaycastHit treeHit;
-            RaycastHit groundHit;
+            RaycastHit hit;
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out treeHit, 100000, treeLayer))
+            if (Physics.Raycast(ray, out hit))
             {
-                Tree tree = treeHit.transform.gameObject.GetComponentInParent<Tree>();
-                RootHandle rootHandle = treeHit.transform.gameObject.GetComponentInParent<RootHandle>();
-                if (isPlacing)
+                if (hit.transform.gameObject.tag == treeTag)
                 {
-                    if ((placingFromTree && tree.transform == source) == false && !tree.isConnected)
-                    {
-                        PlaceRoot(treeHit.point, source.position);
-                        isPlacing = false;
-                    }
-                }
-                else
-                {
-                    isPlacing = true;
+
+                    Tree tree = hit.transform.gameObject.GetComponentInParent<Tree>();
                     if (tree != null)
                     {
-                        source = tree.transform;
-                        placingFromTree = true;
-                    }
-                    else if (rootHandle != null)
-                    {
-                        source = rootHandle.transform;
-                        lastHandle = rootHandle;
-                        placingFromTree = false;
+                        selectedSource = tree.transform;
+                        radiusRenderer.SetActive(true);
+                        radiusRenderer.transform.position = tree.transform.transform.position + Vector3.up * 0.2f;
+                        radiusRenderer.transform.localScale = new Vector3(tree.effectRadius * radiusFactor, 0, tree.effectRadius * radiusFactor);
+                        if (!isPlacing)
+                        {
+                            isPlacing = true;
+                            placingFromTree = true;
+                        }
                     }
                     else
-                        Debug.LogError("Hit object has no Rree or RootHandle component");
+                        Debug.LogError("Hit object has no Tree component");
                 }
-
-            }
-            else if (Physics.Raycast(ray, out groundHit, 100000, groundLayer))
-            {
-                //TODO : check if first hit object is ground ?
-                //GameObject objectHit = treeHit.transform.gameObject;
-
-                if (isPlacing)
+                else if (hit.transform.gameObject.tag == rootHandleTag)
                 {
-                    if (placingFromTree)
+                    RootHandle rootHandle = hit.transform.gameObject.GetComponentInParent<RootHandle>();
+                    if (rootHandle != null)
                     {
-                        PlaceRoot(source.position, groundHit.point);
+                        selectedSource = rootHandle.transform;
+                        lastHandle = rootHandle;
+                        radiusRenderer.SetActive(true);
+                        radiusRenderer.transform.position = rootHandle.transform.transform.position + Vector3.up * 0.2f;
+                        radiusRenderer.transform.localScale = new Vector3(2, 0, 2);
+                        if (!isPlacing)
+                        {
+
+                            isPlacing = true;
+                            placingFromTree = false;
+                        }
+                        else
+                            Debug.LogError("Hit object has no RootHandle component");
                     }
-                    else
+                }
+                else if (hit.transform.gameObject.tag == groundTag)
+                {
+                    radiusRenderer.SetActive(false);
+
+                    if (isPlacing)
                     {
-                        //PlaceRoot(lastHandle.transform.position, groundHit.point);
-                        lastHandle.sourceRoot.ProlongateRoot(groundHit.point);
-                        RootHandle handle = Instantiate(rootHandlePrefab, groundHit.point, Quaternion.identity).GetComponent<RootHandle>();
-                        handle.sourceRoot = lastHandle.sourceRoot;
-                        Destroy(lastHandle.gameObject);
+                        if (placingFromTree)
+                        {
+                            PlaceRoot(selectedSource.position, hit.point);
+                        }
+                        else
+                        {
+                            //PlaceRoot(lastHandle.transform.position, groundHit.point);
+                            lastHandle.sourceRoot.ProlongateRoot(hit.point + Vector3.up * 0.8f);
+                            RootHandle handle = Instantiate(rootHandlePrefab, hit.point, Quaternion.identity).GetComponent<RootHandle>();
+                            handle.sourceRoot = lastHandle.sourceRoot;
+                            Destroy(lastHandle.gameObject);
+                        }
+                        isPlacing = false;
                     }
-                    isPlacing = false;
                 }
             }
         }
@@ -90,8 +104,9 @@ public class RootManager : MonoBehaviour
     private void PlaceRoot(Vector3 start, Vector3 end)
     {
         Root root = Instantiate(rootPrefab, Vector3.zero, Quaternion.identity).GetComponent<Root>();
-        root.TraceRoot(start, end);
+        root.TraceRoot(start + Vector3.up * 0.8f, end + Vector3.up * 0.8f);
         RootHandle handle = Instantiate(rootHandlePrefab, end, Quaternion.identity).GetComponent<RootHandle>();
         handle.sourceRoot = root;
     }
+
 }

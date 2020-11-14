@@ -45,6 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   line: {fileID: 9144473048348397067}
+  step: 5
+  amplitude: 10
+  lightPrefab: {fileID: 7473514125000601018, guid: 1e309605d0dcf6541b1fbfec9765fb9d,
+    type: 3}
 --- !u!1 &2272106919795231087
 GameObject:
   m_ObjectHideFlags: 0
