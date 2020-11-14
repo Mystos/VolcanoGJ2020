@@ -21,6 +21,7 @@ public class RootManager : MonoBehaviour
     bool placingFromTree = false;
     Transform selectedSource;
     RootHandle lastHandle;
+    private float offset = 0.2f;
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +36,7 @@ public class RootManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            radiusRenderer.SetActive(false);
-            buildManager.Hide();
+            ClearSelection();
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -118,7 +118,7 @@ public class RootManager : MonoBehaviour
                             Tree tree = lastHandle.sourceRoot.connectedTree;
                             if (tree.InRange(hit.point))
                             {
-                                lastHandle.sourceRoot.ProlongateRoot(hit.point + Vector3.up * 0.8f);
+                                lastHandle.sourceRoot.ProlongateRoot(hit.point + Vector3.up * offset);
                                 RootHandle handle = Instantiate(rootHandlePrefab, hit.point, Quaternion.identity).GetComponent<RootHandle>();
                                 handle.sourceRoot = lastHandle.sourceRoot;
                                 Destroy(lastHandle.gameObject);
@@ -144,7 +144,7 @@ public class RootManager : MonoBehaviour
     private Root PlaceRoot(Vector3 start, Vector3 end)
     {
         Root root = Instantiate(rootPrefab, Vector3.zero, Quaternion.identity).GetComponent<Root>();
-        root.TraceRoot(start + Vector3.up * 0.8f, end + Vector3.up * 0.8f);
+        root.TraceRoot(start + Vector3.up * offset, end + Vector3.up * offset);
         RootHandle handle = Instantiate(rootHandlePrefab, end, Quaternion.identity).GetComponent<RootHandle>();
         handle.sourceRoot = root;
         selectedSource = handle.transform;

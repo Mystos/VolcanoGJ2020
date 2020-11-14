@@ -62,10 +62,11 @@ public class BuildManager : MonoBehaviour
             if (CalculateCost(eType))
             {
                 Tree tree = Instantiate(treePrefab, buildPosition, Quaternion.identity).GetComponent<Tree>();
+                if (onTreePlaced != null)
+                    onTreePlaced.Invoke();
             }
         }
-        if (onTreePlaced != null)
-            onTreePlaced.Invoke();
+
     }
 
     public bool CheckHovering(Vector2 mousePosition)
