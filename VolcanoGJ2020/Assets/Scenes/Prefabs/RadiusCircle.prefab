@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0.7675314, b: 0.24056602, a: 1}
+  m_Color: {r: 1, g: 0.74856323, b: 0.1745283, a: 0.5529412}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5528872025915917452}
   m_Layer: 0
-  m_Name: SeletionCircle
+  m_Name: RadiusCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
