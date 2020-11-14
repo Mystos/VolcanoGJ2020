@@ -137,7 +137,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.5960751, g: 0.83816, b: 0.8962264, a: 1}
   m_Intensity: 1
-  m_Range: 50
+  m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -638,3 +638,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isConnected: 0
+  type: 0

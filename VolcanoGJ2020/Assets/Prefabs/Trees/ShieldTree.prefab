@@ -44,7 +44,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.5960751, g: 0.83816, b: 0.8962264, a: 1}
   m_Intensity: 0.8
-  m_Range: 25
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 5078139694913813052}
   m_Layer: 8
   m_Name: Top2
-  m_TagString: tree
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 6697302180729217653}
   m_Layer: 8
   m_Name: Top1
-  m_TagString: tree
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 6697302180762451748}
   m_Layer: 8
   m_Name: Base
-  m_TagString: tree
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 1623617633}
   m_Layer: 8
   m_Name: ShieldTree
-  m_TagString: tree
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -450,3 +450,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isConnected: 0
+  type: 1

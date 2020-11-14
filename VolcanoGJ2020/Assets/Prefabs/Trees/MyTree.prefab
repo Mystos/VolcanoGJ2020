@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4069305744252681620}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6087631429190911228}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: MyTree
   m_TagString: tree
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 7143275374032201823}
   - component: {fileID: 7143275374032201822}
   - component: {fileID: 7143275374032201817}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 7143275374131492110}
   - component: {fileID: 7143275374131492105}
   - component: {fileID: 7143275374131492104}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
