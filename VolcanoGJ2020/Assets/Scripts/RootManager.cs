@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class RootManager : MonoBehaviour
 {
     public Camera camera;
-    public BuildManager buildManger;
+    public BuildManager buildManager;
 
     [Header("Radius renderer")]
     public float radiusFactor = 6;
@@ -29,10 +29,9 @@ public class RootManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        radiusRenderer.SetActive(false);
-        buildManger.Hide();
-        isPlacing = false;
-        placingFromTree = false;
+        ClearSelection();
+        buildManager.onTreePlaced += TreePlaced;
+
     }
 
     // Update is called once per frame
@@ -41,17 +40,20 @@ public class RootManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             radiusRenderer.SetActive(false);
-            buildManger.Hide();
+            buildManager.Hide();
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            if (buildManager.gameObject.activeSelf && buildManager.CheckHovering(Input.mousePosition))
+                return;
+
             RaycastHit hit;
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit))
             {
-                buildManger.Hide();
+                buildManager.Hide();
 
                 if (hit.transform.gameObject.tag == treeTag)
                 {
@@ -78,7 +80,7 @@ public class RootManager : MonoBehaviour
                         selectedSource = rootHandle.transform;
                         lastHandle = rootHandle;
                         UpdateSelectionEffect(selectedSource.position);
-                        buildManger.Show(selectedSource.position, Input.mousePosition);
+                        buildManager.Show(selectedSource.position, Input.mousePosition);
 
                         if (!isPlacing)
                         {
@@ -118,7 +120,7 @@ public class RootManager : MonoBehaviour
 
                         placingFromTree = false;
                         isPlacing = true;
-                        buildManger.Show(selectedSource.position, Input.mousePosition);
+                        buildManager.Show(selectedSource.position, Input.mousePosition);
                     }
                 }
             }
@@ -135,7 +137,20 @@ public class RootManager : MonoBehaviour
         lastHandle = handle;
     }
 
+    private void ClearSelection()
+    {
+        radiusRenderer.SetActive(false);
+        buildManager.Hide();
+        isPlacing = false;
+        placingFromTree = false;
+        lastHandle = null;
+    }
 
+    private void TreePlaced()
+    {
+        Destroy(lastHandle.gameObject);
+        ClearSelection();
+    }
 
     private void UpdateSelectionEffect(Vector3 position, Vector3 size)
     {
