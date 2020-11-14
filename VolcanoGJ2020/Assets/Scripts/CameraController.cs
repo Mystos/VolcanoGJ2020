@@ -13,25 +13,26 @@ public class CameraController : MonoBehaviour
     public float maxY = 80f;
     public float minRotX = 20f;
     public float maxRotX = 90f;
+    public bool ActivateBorderControls = true;
     // Update is called once per frame
     void Update()
     {
         Vector3 pos = transform.position;
         Quaternion rot = transform.rotation;
 
-        if (Input.GetKey(KeyCode.Z) || Input.mousePosition.y >= Screen.height - panBorderThickness)
+        if ( Input.GetKey(KeyCode.Z) || (ActivateBorderControls? Input.mousePosition.y >= Screen.height - panBorderThickness: false))
         {
             pos += panSpeed * Time.deltaTime * transform.up;
         }
-        if (Input.GetKey(KeyCode.S) || Input.mousePosition.y <= panBorderThickness)
+        if (Input.GetKey(KeyCode.S) || (ActivateBorderControls? Input.mousePosition.y <= panBorderThickness: false))
         {
             pos += panSpeed * Time.deltaTime * -transform.up;
         }
-        if (Input.GetKey(KeyCode.D) || Input.mousePosition.x >= Screen.width - panBorderThickness)
+        if (Input.GetKey(KeyCode.D) || (ActivateBorderControls? Input.mousePosition.x >= Screen.width - panBorderThickness : false))
         {
             pos += panSpeed * Time.deltaTime * transform.right;
         }
-        if (Input.GetKey(KeyCode.Q) || Input.mousePosition.x <= panBorderThickness)
+        if (Input.GetKey(KeyCode.Q) || (ActivateBorderControls? Input.mousePosition.x <= panBorderThickness: false))
         {
             pos += panSpeed * Time.deltaTime * -transform.right;
         }
