@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public string saltGroundTag = "saltGround";
     public string superMineralTag = "superMineral";
     public string sandGroundTag = "sandGround";
+    public string ressourceTag = "ressource";
     public float superMineralCheckRadius = 5f;
 
     // Current Ressources
@@ -28,14 +29,14 @@ public class GameManager : MonoBehaviour
     [Header("Water")]
     [Space]
     [Header("Ressources stats")]
-    public int waterPuddle = 20;
-    public int waterPond = 60;
-    public int waterLake = 100;
+    public uint waterPuddle = 20;
+    public uint waterPond = 60;
+    public uint waterLake = 100;
 
     [Header("Minerals")]
-    public int oxides = 20;
-    public int halogens = 60;
-    public int nitrates = 100;
+    public uint oxides = 20;
+    public uint halogens = 60;
+    public uint nitrates = 100;
 
     [Header("Trees")]
     public int treeRadiusEarth = 20;
@@ -86,5 +87,38 @@ public class GameManager : MonoBehaviour
         {
             listTree.Add(tree);
         }
+    }
+
+    public void CollectRessource(Ressource ressource)
+    {
+        if (!ressource.Active)
+            return;
+
+        switch (ressource.type)
+        {
+            case ERessourceType.waterPuddle:
+                water += waterPuddle;
+                break;
+            case ERessourceType.waterPond:
+                water += waterPond;
+                break;
+            case ERessourceType.waterLake:
+                water += waterLake;
+                break;
+            case ERessourceType.oxides:
+                minerals += oxides;
+                break;
+            case ERessourceType.halogens:
+                minerals += halogens;
+                break;
+            case ERessourceType.nitrates:
+                minerals += nitrates;
+                break;
+            case ERessourceType.coeur:
+                break;
+            default:
+                break;
+        }
+        ressource.Active = false;
     }
 }

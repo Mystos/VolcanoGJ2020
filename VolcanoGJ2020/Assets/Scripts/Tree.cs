@@ -27,11 +27,6 @@ public class Tree : MonoBehaviour
             Radius = GameManager.Instance.treeRadiusSuperMineral;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public bool InRange(Vector3 position)
     {
