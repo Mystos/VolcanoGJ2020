@@ -15,11 +15,12 @@ public class GameManager : MonoBehaviour
     public string saltGroundTag = "saltGround";
     public string superMineralTag = "superMineral";
     public string sandGroundTag = "sandGround";
+    public float superMineralCheckRadius = 5f;
 
     [Header("Ressources")]
     public int waterPuddle = 20;
     public int waterPond = 60;
-    public int waterLake= 100;
+    public int waterLake = 100;
 
     [Header("Minerals")]
     public int oxides = 20;
