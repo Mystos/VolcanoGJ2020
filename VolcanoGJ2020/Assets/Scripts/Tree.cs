@@ -12,7 +12,7 @@ public class Tree : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Collider[] cols = Physics.OverlapSphere(transform.position, 0.5f, GameManager.Instance.groundLayers);
+        Collider[] cols = Physics.OverlapSphere(transform.position, 0.5f, GameManager.Instance.groundLayer);
         Radius = GameManager.Instance.treeRadiusEarth;
         for (int i = 0; i < cols.Length; i++)
         {

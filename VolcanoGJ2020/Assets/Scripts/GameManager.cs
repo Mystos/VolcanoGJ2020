@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [Header("Set up")]
-    public LayerMask groundLayers;
+    public LayerMask groundLayer;
+    public LayerMask superMineralLayer;
     public string groundTag = "ground";
     public string treeTag = "tree";
     public string rootHandleTag = "rootHandle";
