@@ -42,6 +42,6 @@ public class Tree : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, Radius);
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, GameManager.Instance.treeRadiusSuperMineral);
+        Gizmos.DrawWireSphere(transform.position, GameManager.Instance.superMineralCheckRadius);
     }
 }
