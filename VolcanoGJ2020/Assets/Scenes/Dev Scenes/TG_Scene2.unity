@@ -2911,7 +2911,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-84256
+  m_Name: pb_Mesh-111964
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10695,6 +10695,9 @@ MonoBehaviour:
   superMineralCheckRadius: 5
   water: 0
   minerals: 0
+  cheatActivate: 0
+  treeLevel: 0
+  growingPower: 0
   waterPuddle: 20
   waterPond: 60
   waterLake: 100
@@ -10712,6 +10715,10 @@ MonoBehaviour:
   sanitizerMineralCost: 3
   shieldWaterCost: 3
   shieldMineralCost: 7
+  saltFactor: 2
+  powerLvl1: 20
+  powerLvl2: 40
+  powerLvl3: 80
 --- !u!1001 &846312048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14323,12 +14330,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &1135719451 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 5120149803725763651, guid: 6fedef5a912fffc4595665c61e57b37e,
-    type: 3}
-  m_PrefabInstance: {fileID: 5120149802594435160}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1161739937
 Mesh:
   m_ObjectHideFlags: 0
@@ -16736,7 +16737,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-84124
+  m_Name: pb_Mesh-111832
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20458,6 +20459,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SeletionCircle
       objectReference: {fileID: 0}
+    - target: {fileID: 5333534587399024413, guid: 52485da747d233548ae0785e438d03b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5528872025915917452, guid: 52485da747d233548ae0785e438d03b1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20993,7 +20999,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9c9290556c5d743816f35c323e2e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1135719451}
   buildManager: {fileID: 1547010081}
   radiusFactor: 1.15
   radiusRenderer: {fileID: 1746125154}
@@ -23218,6 +23223,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120149803603304868, guid: 6fedef5a912fffc4595665c61e57b37e,
+        type: 3}
+      propertyPath: minY
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120149803603304868, guid: 6fedef5a912fffc4595665c61e57b37e,
+        type: 3}
+      propertyPath: maxY
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120149803603304868, guid: 6fedef5a912fffc4595665c61e57b37e,
+        type: 3}
+      propertyPath: minRotX
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120149803603304868, guid: 6fedef5a912fffc4595665c61e57b37e,
+        type: 3}
+      propertyPath: maxRotX
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5120149803603304869, guid: 6fedef5a912fffc4595665c61e57b37e,
         type: 3}

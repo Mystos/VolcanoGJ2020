@@ -602,6 +602,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7757458353770124161}
   - component: {fileID: 1697180053}
+  - component: {fileID: 8221327548225049878}
   m_Layer: 8
   m_Name: MotherTree
   m_TagString: tree

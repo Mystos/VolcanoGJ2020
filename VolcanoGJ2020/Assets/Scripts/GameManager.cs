@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     public uint water = 0;
     public uint minerals = 0;
     public bool cheatActivate = false;
+    public uint treeLevel = 0;
+    public float growingPower = 0;
+
     // Ressources stats
 
     [Header("Water")]
@@ -58,6 +61,20 @@ public class GameManager : MonoBehaviour
     public int shieldMineralCost = 7;
     public float saltFactor = 2f;
 
+    [Space]
+    [Header("GrowingPowerLevel")]
+    public int powerLvl1 = 20;
+    public int powerLvl2 = 40;
+    public int powerLvl3 = 80;
+
+
+    [Space]
+    [Header("Vegetal Generation")]
+    public List<GameObject> vegetalAssets;
+    [Range(0.1f, 1f)]
+    public float randomScaleMinFactor;
+    [Range(1f, 10f)]
+    public float randomScaleMaxFactor;
 
     // Private Variable
     internal Tree motherTree;
