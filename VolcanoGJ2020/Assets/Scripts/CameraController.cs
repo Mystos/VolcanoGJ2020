@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public Transform mainCamera;
     public float panSpeed = 20f;
     public float rotSpeed = 20f;
     public float panBorderThickness = 10f;
@@ -14,19 +15,22 @@ public class CameraController : MonoBehaviour
     public float minRotX = 20f;
     public float maxRotX = 90f;
     public bool ActivateBorderControls = true;
+
     // Update is called once per frame
     void Update()
     {
         Vector3 pos = transform.position;
-        Quaternion rot = transform.rotation;
+        Quaternion rotParent = transform.rotation;
+        Quaternion rotMain = mainCamera.rotation;
+
 
         if ( Input.GetKey(KeyCode.Z) || (ActivateBorderControls? Input.mousePosition.y >= Screen.height - panBorderThickness: false))
         {
-            pos += panSpeed * Time.deltaTime * transform.up;
+            pos += panSpeed * Time.deltaTime * transform.forward;
         }
         if (Input.GetKey(KeyCode.S) || (ActivateBorderControls? Input.mousePosition.y <= panBorderThickness: false))
         {
-            pos += panSpeed * Time.deltaTime * -transform.up;
+            pos += panSpeed * Time.deltaTime * -transform.forward;
         }
         if (Input.GetKey(KeyCode.D) || (ActivateBorderControls? Input.mousePosition.x >= Screen.width - panBorderThickness : false))
         {
@@ -38,11 +42,13 @@ public class CameraController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A))
         {
-            rot.eulerAngles = new Vector3(rot.eulerAngles.x, rot.eulerAngles.y + rotSpeed * Time.deltaTime, rot.eulerAngles.z);
+            rotMain.eulerAngles = new Vector3(rotMain.eulerAngles.x, rotMain.eulerAngles.y + rotSpeed * Time.deltaTime, rotMain.eulerAngles.z);
+            rotParent.eulerAngles = new Vector3(rotParent.eulerAngles.x, rotParent.eulerAngles.y + rotSpeed * Time.deltaTime, rotParent.eulerAngles.z);
         }
         if (Input.GetKey(KeyCode.E))
         {
-            rot.eulerAngles = new Vector3(rot.eulerAngles.x, rot.eulerAngles.y - rotSpeed * Time.deltaTime, rot.eulerAngles.z);
+            rotMain.eulerAngles = new Vector3(rotMain.eulerAngles.x, rotMain.eulerAngles.y - rotSpeed * Time.deltaTime, rotMain.eulerAngles.z);
+            rotParent.eulerAngles = new Vector3(rotParent.eulerAngles.x, rotParent.eulerAngles.y - rotSpeed * Time.deltaTime, rotParent.eulerAngles.z);
         }
 
 
@@ -53,9 +59,10 @@ public class CameraController : MonoBehaviour
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
         pos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y);
 
-        //float rotX = Mathf.Clamp(pos.y, minRotX, maxRotX);
-        //rot.eulerAngles = new Vector3(rotX, rot.eulerAngles.y, rot.eulerAngles.z);
+        float rotX = Mathf.Clamp(pos.y, minRotX, maxRotX);
+        rotMain.eulerAngles = new Vector3(rotX, rotMain.eulerAngles.y, rotMain.eulerAngles.z);
         transform.position = pos;
-        transform.rotation = rot;
+        transform.rotation = rotParent;
+        mainCamera.rotation = rotMain;
     }
 }
