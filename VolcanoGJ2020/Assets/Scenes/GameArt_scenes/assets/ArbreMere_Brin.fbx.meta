@@ -3,7 +3,27 @@ guid: 8b2e365c575437a4ca959b7ebf4c8b54
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AM_Lambert_Emiss
+    second: {fileID: 2100000, guid: 5089e1ac32a6f4d469726b815b9e80b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AM_Lambert_Leaves01
+    second: {fileID: 2100000, guid: 6763d6609b2f374429687310b4199abd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AM_Lambert_Leaves02
+    second: {fileID: 2100000, guid: 11b5e2622d22b514688967627755d10d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AM_Lambert_Trunk
+    second: {fileID: 2100000, guid: 6412f51c3c58e87499acd89a7b63a570, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
