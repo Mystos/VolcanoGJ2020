@@ -126,7 +126,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(Instance);
+            Instance = gameObject.GetComponent<GameManager>();
             return;
         }
     }
@@ -138,6 +139,7 @@ public class GameManager : MonoBehaviour
         listTree = new List<Tree>();
         listTree.Add(motherTree);
         volcanos = FindObjectsOfType<Volcano>();
+        PauseMenu.IsGameWin = false;
         LevelUp();
     }
 
