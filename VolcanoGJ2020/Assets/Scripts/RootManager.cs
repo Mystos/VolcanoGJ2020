@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class RootManager : MonoBehaviour
 {
     [Header("Radius renderer")]
-    public float radiusFactor = 6;
     public GameObject radiusRenderer;
 
     [Header("Prefabs")]
@@ -14,6 +13,7 @@ public class RootManager : MonoBehaviour
     public GameObject rootHandlePrefab;
 
     //Root building
+    private float radiusFactor = 2f;
     private BuildManager buildManager;
     private Camera camera;
     private bool isPlacing = false;
