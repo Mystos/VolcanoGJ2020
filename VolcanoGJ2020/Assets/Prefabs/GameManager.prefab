@@ -56,6 +56,7 @@ MonoBehaviour:
   fireBallLayer:
     serializedVersion: 2
     m_Bits: 4096
+  levelMaxNbrHeart: 5
   groundTag: ground
   treeTag: tree
   rootHandleTag: rootHandle
@@ -64,7 +65,7 @@ MonoBehaviour:
   sandGroundTag: sandGround
   ressourceTag: ressource
   rampTag: ramp
-  levelMaxNbrHeart: 5
+  vegetalTag: ramp
   water: 100
   minerals: 100
   cheatActivate: 0
@@ -128,8 +129,11 @@ MonoBehaviour:
   randomScaleMaxFactor: 1
   minSpawnRadius: 0.5
   CurrentMotherTreeLevelModel: {fileID: 0}
-  minForce: 5
-  maxForce: 5
+  minForce: 300
+  maxForce: 800
+  minLavaCount: 10
+  maxLavaCount: 50
+  launchRadius: 7
 --- !u!1001 &144631022757892845
 PrefabInstance:
   m_ObjectHideFlags: 0
