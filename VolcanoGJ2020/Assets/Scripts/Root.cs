@@ -6,7 +6,7 @@ public class Root : MonoBehaviour
 {
     public LineRenderer line;
     private float step = 0.5f;
-    private float amplitude = 3;
+    private float amplitude = 2;
 
     public Tree connectedTree { get; set; }
 

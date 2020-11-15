@@ -7,6 +7,7 @@ public class Tree : MonoBehaviour
     [HideInInspector] public bool isConnected = false;
     List<Tree> connectedTree;
     public TreeType type;
+    public float testRadius;
 
     public float Radius { get; private set; }
 
@@ -36,13 +37,32 @@ public class Tree : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, testRadius);
         if (GameManager.Instance == null)
             return;
-        Gizmos.color = Color.red;
+
+        switch (type)
+        {
+            case TreeType.Cutting:
+                Gizmos.color = Color.green;
+                Gizmos.DrawWireSphere(transform.position, GameManager.Instance.superMineralCheckRadius);
+                break;
+            case TreeType.Shield:
+                Gizmos.color = Color.red;
+                Gizmos.DrawWireSphere(transform.position, GameManager.Instance.shieldRadius);
+                break;
+            case TreeType.Sanitizer:
+                Gizmos.color = Color.blue;
+                Gizmos.DrawWireSphere(transform.position, GameManager.Instance.sanitizeRadius);
+                break;
+            default:
+                break;
+        }
+
+        Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, Radius);
-        Gizmos.DrawWireSphere(transform.position, 0.5f);
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, GameManager.Instance.superMineralCheckRadius);
+    
     }
 
     public enum TreeType

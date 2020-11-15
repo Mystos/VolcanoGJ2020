@@ -50,11 +50,13 @@ MonoBehaviour:
   panBorderThickness: 10
   panLimit: {x: 100, y: 100}
   scrollSpeed: 50
-  minY: 20
-  maxY: 80
-  minRotX: 20
+  minY: 10
+  maxY: 40
+  minRotX: 40
   maxRotX: 90
   ActivateBorderControls: 0
+  startPos: {x: 20, y: 15, z: 30}
+  startRotY: 140
 --- !u!1 &5120149803725763649
 GameObject:
   m_ObjectHideFlags: 0
