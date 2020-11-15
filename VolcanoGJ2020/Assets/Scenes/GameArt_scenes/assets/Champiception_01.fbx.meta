@@ -3,7 +3,27 @@ guid: 1bafb308b16c8584085f238c2b7ae7b1
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roche02
+    second: {fileID: 2100000, guid: f11b4bf74f2c714408380a1f51221053, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: champi01
+    second: {fileID: 2100000, guid: 8512e30d465f6f94aacff1e9d1e427db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: leaves01
+    second: {fileID: 2100000, guid: ee63a6bb23bc38e4a9078a664cc83034, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plante01
+    second: {fileID: 2100000, guid: f347087bbe62e4949b00e545cf6fdfd3, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

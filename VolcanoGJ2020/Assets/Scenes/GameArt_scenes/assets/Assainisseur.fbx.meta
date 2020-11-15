@@ -3,7 +3,22 @@ guid: e316462358d6587418f026d834586969
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Text_Assainisseur
+    second: {fileID: 2100000, guid: 10525318b49fc4c40afd3e6ab70ed4fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Text_AssainisseurOcre
+    second: {fileID: 2100000, guid: 0977d8735aaf2524ba487c81cfa79695, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Text_Assainisseur_Trunk
+    second: {fileID: 2100000, guid: e107216189c285945a5f4dacdd5cc1f9, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
