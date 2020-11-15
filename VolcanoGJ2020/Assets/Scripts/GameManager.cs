@@ -75,8 +75,11 @@ public class GameManager : MonoBehaviour
     public uint maxNbrPlantLvl4 = 200;
     public uint maxNbrPlantLvl5 = 300;
 
-
-
+    public GameObject prefabMotherTreeLvl1;
+    public GameObject prefabMotherTreeLvl2;
+    public GameObject prefabMotherTreeLvl3;
+    public GameObject prefabMotherTreeLvl4;
+    public GameObject prefabMotherTreeLvl5;
 
     [Space]
     [Header("Vegetal Generation")]
@@ -110,6 +113,7 @@ public class GameManager : MonoBehaviour
         motherTree = this.GetComponent<Tree>();
         listTree = new List<Tree>();
         listTree.Add(motherTree);
+        LevelUp();
     }
 
 
@@ -147,10 +151,45 @@ public class GameManager : MonoBehaviour
                 minerals += nitrates;
                 break;
             case ERessourceType.coeur:
+                LevelUp();
                 break;
             default:
                 break;
         }
         ressource.Active = false;
+    }
+
+    public void LevelUp()
+    {
+        treeLevel++;
+        SetLevelStats(treeLevel);
+    }
+
+    public void SetLevelStats(uint level)
+    {
+        switch (treeLevel)
+        {
+            case 1:
+                maxPlant = maxNbrPlantLvl1;
+                growingPower = maxNbrPlantLvl1;
+                //Ajouter les changement de modèles
+                break;
+            case 2:
+                maxPlant = maxNbrPlantLvl2;
+                growingPower = maxNbrPlantLvl2;
+                break;
+            case 3:
+                maxPlant = maxNbrPlantLvl3;
+                growingPower = maxNbrPlantLvl3;
+                break;
+            case 4:
+                maxPlant = maxNbrPlantLvl4;
+                growingPower = maxNbrPlantLvl4;
+                break;
+            case 5:
+                maxPlant = maxNbrPlantLvl5;
+                growingPower = maxNbrPlantLvl5;
+                break;
+        }
     }
 }
