@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FireBall : MonoBehaviour
 {
-    Transform directionTransform;
+    public Transform directionTransform;
 
     // Start is called before the first frame update
     void Start()
