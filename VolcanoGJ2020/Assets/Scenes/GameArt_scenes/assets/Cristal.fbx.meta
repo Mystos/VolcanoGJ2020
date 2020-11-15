@@ -3,7 +3,22 @@ guid: a9abb17430395e440b02cdc0fb335d2a
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Text_Cristal01
+    second: {fileID: 2100000, guid: ed17187204920c049b0a728f95f94d41, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Text_Cristal02
+    second: {fileID: 2100000, guid: 5821e6a65b827fe45b45cc08588551b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Text_Cristal_socle
+    second: {fileID: 2100000, guid: 2ba956c47444af342a857b4c27fe026b, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
