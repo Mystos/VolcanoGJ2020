@@ -129,8 +129,12 @@ public class RootManager : MonoBehaviour
                         {
                             //Get tree
                             Tree tree = selectedSource.GetComponent<Tree>();
+                            bool placementAuthorized = IsOnSameLevel(tree.transform.position, hit.point) ||
+                                hit.transform.gameObject.tag == GameManager.Instance.ressourceTag ||
+                                hit.transform.gameObject.tag == GameManager.Instance.rampTag;
+
                             //Check if hit point is in tree range
-                            if (tree != null && tree.InRange(hit.point) && IsOnSameLevel(tree.transform.position, hit.point))
+                            if (tree != null && tree.InRange(hit.point) && placementAuthorized)
                             {
                                 //Place root and update connected tree
                                 Root root = Instantiate(rootPrefab, Vector3.zero, Quaternion.identity).GetComponent<Root>();
@@ -139,7 +143,7 @@ public class RootManager : MonoBehaviour
 
                                 if (hit.transform.gameObject.tag == GameManager.Instance.ressourceTag)
                                 {
-                                    root.TraceRoot(selectedSource.position + rootOffset, hit.point);
+                                    root.TraceRoot(selectedSource.position + rootOffset, hit.transform.position);
                                     Ressource ressource = hit.transform.GetComponent<Ressource>();
                                     if (ressource != null)
                                         GameManager.Instance.CollectRessource(ressource);
@@ -151,8 +155,8 @@ public class RootManager : MonoBehaviour
                                     Ramp ramp = hit.transform.GetComponent<Ramp>();
                                     if (ramp != null)
                                     {
-                                        Vector3 firstPos = ramp.GetPrimaryPoint(hit.point);
-                                        Vector3 secondPos = ramp.GetSecondaryPoint(hit.point);
+                                        Vector3 firstPos = ramp.GetPrimaryPoint(selectedSource.position);
+                                        Vector3 secondPos = ramp.GetSecondaryPoint(selectedSource.position);
                                         root.TraceRoot(selectedSource.position + rootOffset, firstPos + rootOffset);
                                         root.ProlongateRoot(secondPos + rootOffset);
                                         CreateRootHandle(secondPos, root, false);
@@ -170,13 +174,17 @@ public class RootManager : MonoBehaviour
                         {
                             //Get root connected tree
                             Tree tree = lastHandle.sourceRoot.connectedTree;
+                            bool placementAuthorized = IsOnSameLevel(lastHandle.transform.position, hit.point) ||
+                                hit.transform.gameObject.tag == GameManager.Instance.ressourceTag ||
+                                hit.transform.gameObject.tag == GameManager.Instance.rampTag;
+
                             //If hit point in tree range
-                            if (tree.InRange(hit.point) && IsOnSameLevel(lastHandle.transform.position, hit.point))
+                            if (tree.InRange(hit.point) && placementAuthorized)
                             {
                                 pointInRange = true;
                                 if (hit.transform.gameObject.tag == GameManager.Instance.ressourceTag)
                                 {
-                                    lastHandle.sourceRoot.ProlongateRoot(hit.point + rootOffset);
+                                    lastHandle.sourceRoot.ProlongateRoot(hit.transform.position);
                                     Ressource ressource = hit.transform.GetComponent<Ressource>();
                                     if (ressource != null)
                                         GameManager.Instance.CollectRessource(ressource);
@@ -189,8 +197,8 @@ public class RootManager : MonoBehaviour
                                     Ramp ramp = hit.transform.GetComponent<Ramp>();
                                     if (ramp != null)
                                     {
-                                        Vector3 firstPos = ramp.GetPrimaryPoint(hit.point);
-                                        Vector3 secondPos = ramp.GetSecondaryPoint(hit.point);
+                                        Vector3 firstPos = ramp.GetPrimaryPoint(lastHandle.transform.position);
+                                        Vector3 secondPos = ramp.GetSecondaryPoint(lastHandle.transform.position);
                                         lastHandle.sourceRoot.ProlongateRoot(firstPos + rootOffset);
                                         lastHandle.sourceRoot.ProlongateRoot(secondPos + rootOffset);
                                         CreateRootHandle(secondPos, lastHandle.sourceRoot, true);
