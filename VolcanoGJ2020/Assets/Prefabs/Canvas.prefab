@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 3492819621830607178}
   - component: {fileID: 6359771695237389672}
   m_Layer: 5
-  m_Name: ShieldTree
+  m_Name: ShieldButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5114,7 +5114,7 @@ GameObject:
   - component: {fileID: 7648930086747782062}
   - component: {fileID: 6883640056678132275}
   m_Layer: 5
-  m_Name: CuttingTree
+  m_Name: CuttingButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5327,7 +5327,8 @@ MonoBehaviour:
     type: 3}
   sanitizerPrefab: {fileID: 9128932218613544492, guid: e7101050766d7c846bca522add7d432d,
     type: 3}
-  bushPrefab: {fileID: 0}
+  bushPrefab: {fileID: 9128932218613544492, guid: 9ca5e2d137259544ab86824b3eb47a26,
+    type: 3}
   panelTransform: {fileID: 5303490898755287868}
   waterPriceCuttingTxt: {fileID: 6897842419997831590}
   waterPriceShieldTxt: {fileID: 6484358827887159569}
