@@ -7,9 +7,6 @@ public class TreeVegetalManager : MonoBehaviour
     private Tree tree;
 
     [Header("Radius renderer")]
-    public float radiusFactor = 1.15f;
-    public GameObject vegetalRendererPrefab;
-    public GameObject vegetalRenderer;
     public int nbrPlant = 0;
     public float reloadTime = 2f;
     public float reloadProgress = 0f;
@@ -18,7 +15,6 @@ public class TreeVegetalManager : MonoBehaviour
     void Start()
     {
         tree = GetComponent<Tree>();
-        //vegetalRenderer = Instantiate(vegetalRendererPrefab, tree.transform);
     }
 
     // Update is called once per frame
@@ -65,11 +61,6 @@ public class TreeVegetalManager : MonoBehaviour
     private float GetVegetalRadius(float radius)
     {
         return radius * (GameManager.Instance.growingPower / 100);
-    }
-    private void UpdateVegetalZoneEffect(Vector3 position, Vector3 size)
-    {
-        vegetalRenderer.transform.position = position + Vector3.up * 0.2f;
-        vegetalRenderer.transform.localScale = size;
     }
 
     public Vector3 RandomPosInCircle(float radius)
