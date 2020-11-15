@@ -2665,8 +2665,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 24
     localAABB:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0, y: 0, z: 0}
+      m_Center: {x: -0.9311346, y: 1, z: -1.172202}
+      m_Extent: {x: 1.9311346, y: 1, z: 1.2415847}
   m_Shapes:
     vertices: []
     shapes: []
@@ -4246,8 +4246,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 24
     localAABB:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0, y: 0, z: 0}
+      m_Center: {x: -0.9311346, y: 1, z: -1.172202}
+      m_Extent: {x: 1.9311346, y: 1, z: 1.2415847}
   m_Shapes:
     vertices: []
     shapes: []
@@ -4686,8 +4686,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 24
     localAABB:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0, y: 0, z: 0}
+      m_Center: {x: -0.9311346, y: 1, z: -1.172202}
+      m_Extent: {x: 1.9311346, y: 1, z: 1.2415847}
   m_Shapes:
     vertices: []
     shapes: []
@@ -10682,16 +10682,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   treeLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   superMineralLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   fireBallLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4096
   groundTag: ground
   treeTag: tree
   rootHandleTag: rootHandle
@@ -10699,10 +10699,11 @@ MonoBehaviour:
   superMineralTag: superMineral
   sandGroundTag: sandGround
   ressourceTag: ressource
+  rampTag: ramp
   superMineralCheckRadius: 5
   water: 0
   minerals: 0
-  cheatActivate: 0
+  cheatActivate: 1
   treeLevel: 0
   growingPower: 50
   waterPuddle: 20
@@ -10711,9 +10712,9 @@ MonoBehaviour:
   oxides: 20
   halogens: 60
   nitrates: 100
-  treeRadiusEarth: 5
-  treeRadiusSuperMineral: 10
-  treeRadiusSand: 2
+  treeRadiusEarth: 15
+  treeRadiusSuperMineral: 30
+  treeRadiusSand: 10
   sanitizeRadius: 15
   shieldRadius: 15
   rootWaterCost: 0
@@ -10725,22 +10726,42 @@ MonoBehaviour:
   shieldWaterCost: 3
   shieldMineralCost: 7
   saltFactor: 2
-  powerLvl1: 20
-  powerLvl2: 40
-  powerLvl3: 80
-  powerLvl4: 40
+  powerLvl1: 10
+  powerLvl2: 20
+  powerLvl3: 40
+  powerLvl4: 60
   powerLvl5: 80
+  powerLvl6: 100
   maxNbrPlantLvl1: 20
-  maxNbrPlantLvl2: 20
-  maxNbrPlantLvl3: 20
-  maxNbrPlantLvl4: 20
-  maxNbrPlantLvl5: 20
+  maxNbrPlantLvl2: 30
+  maxNbrPlantLvl3: 40
+  maxNbrPlantLvl4: 50
+  maxNbrPlantLvl5: 60
+  maxNbrPlantLvl6: 70
+  prefabMotherTreeLvl1: {fileID: 1150730480}
+  prefabMotherTreeLvl2: {fileID: 1261228317}
+  prefabMotherTreeLvl3: {fileID: 1474638084}
+  prefabMotherTreeLvl4: {fileID: 1297294196}
+  prefabMotherTreeLvl5: {fileID: 912328493}
+  prefabMotherTreeLvl6: {fileID: 2099838175}
   maxPlant: 20
   vegetalAssets:
   - {fileID: 919132149155446097, guid: bdfa9626e4675694bbb23606f085f011, type: 3}
   - {fileID: 919132149155446097, guid: aed39f46d027ad04baad9c625b3058d0, type: 3}
-  randomScaleMinFactor: 0.548
-  randomScaleMaxFactor: 2.19
+  - {fileID: 919132149155446097, guid: 91a5afb1fdfed374396812bbe2cffa7a, type: 3}
+  - {fileID: 919132149155446097, guid: 5c95f4e899a0dee40ba3d04866075a5b, type: 3}
+  - {fileID: 919132149155446097, guid: 99b6a3d94db82f146aeb641c244f9370, type: 3}
+  - {fileID: 919132149155446097, guid: c27fe4ecc03fee7408030d5496421316, type: 3}
+  - {fileID: 919132149155446097, guid: f80cd94b9ef97994c92b618fdf1efe2b, type: 3}
+  - {fileID: 919132149155446097, guid: 7d8cd785e8843d0409e5fec6fce836b0, type: 3}
+  - {fileID: 919132149155446097, guid: 0400bc810b3a66d42be11e87f327248e, type: 3}
+  - {fileID: 919132149155446097, guid: 2cd996f9147cd8f4dbe9209bebb142ea, type: 3}
+  - {fileID: 919132149155446097, guid: e4ae348907e8e6f4cbf4b160d1ac4a9b, type: 3}
+  - {fileID: 919132149155446097, guid: 950bb5cce0fa6b64fa35cfb2f9337462, type: 3}
+  - {fileID: 919132149155446097, guid: ab3c39e774f9d3f49be84c83fbe2f89b, type: 3}
+  randomScaleMinFactor: 0.183
+  randomScaleMaxFactor: 1
+  CurrentMotherTreeLevelModel: {fileID: 0}
 --- !u!1001 &846312048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11600,6 +11621,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 56.118004, z: 0}
+--- !u!1 &912328493 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7432141146100319541, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3808896820663563510}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &917013557
 Mesh:
   m_ObjectHideFlags: 0
@@ -12225,8 +12252,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 24
     localAABB:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0, y: 0, z: 0}
+      m_Center: {x: -0.9311346, y: 1, z: -1.172202}
+      m_Extent: {x: 1.9311346, y: 1, z: 1.2415847}
   m_Shapes:
     vertices: []
     shapes: []
@@ -14352,6 +14379,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1150730480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7437574175237413533, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3808896820663563510}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1161739937
 Mesh:
   m_ObjectHideFlags: 0
@@ -14792,6 +14825,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1261228317 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5481104191459266334, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3808896820663563510}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1264395380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15066,8 +15105,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 24
     localAABB:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0, y: 0, z: 0}
+      m_Center: {x: -0.9311346, y: 1, z: -1.172202}
+      m_Extent: {x: 1.9311346, y: 1, z: 1.2415847}
   m_Shapes:
     vertices: []
     shapes: []
@@ -15212,6 +15251,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1297294196 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4600529544330548699, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3808896820663563510}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1317074524
 GameObject:
   m_ObjectHideFlags: 0
@@ -15716,31 +15761,6 @@ PrefabInstance:
       objectReference: {fileID: 1752921198}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee611bcd34b8d4446bb10d24404e40dd, type: 3}
---- !u!1 &1330175886 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9128932218613544492, guid: 67567868fd7d7aa429bcbee4808cb2a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 3808896820663563510}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1330175888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1330175886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7331dfc886ada65409bf89ef9af0ee45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radiusFactor: 1.15
-  vegetalRendererPrefab: {fileID: 1671596725726041444, guid: b5916a3d79ac3844cb23e8c0ba02bd53,
-    type: 3}
-  vegetalRenderer: {fileID: 0}
-  nbrPlant: 0
-  reloadTime: 2
-  reloadProgress: 0
 --- !u!1001 &1355577465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16684,6 +16704,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1474638084 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4279696563234122264, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3808896820663563510}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1499270653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17163,6 +17189,7 @@ MonoBehaviour:
     type: 3}
   sanitizerPrefab: {fileID: 9128932218613544492, guid: e7101050766d7c846bca522add7d432d,
     type: 3}
+  bushPrefab: {fileID: 0}
   panelTransform: {fileID: 1547010080}
   waterPriceCuttingTxt: {fileID: 0}
   waterPriceShieldTxt: {fileID: 0}
@@ -20606,8 +20633,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 24
     localAABB:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0, y: 0, z: 0}
+      m_Center: {x: -0.9311346, y: 1, z: -1.172202}
+      m_Extent: {x: 1.9311346, y: 1, z: 1.2415847}
   m_Shapes:
     vertices: []
     shapes: []
@@ -21314,6 +21341,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &2099838175 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3414191038355891831, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3808896820663563510}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2105770489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23203,6 +23236,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1744057398}
     m_Modifications:
+    - target: {fileID: 3175183028452426421, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7757458353770124161, guid: 67567868fd7d7aa429bcbee4808cb2a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23258,17 +23296,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8221327548225049878, guid: 67567868fd7d7aa429bcbee4808cb2a2,
-        type: 3}
-      propertyPath: vegetalRenderer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8221327548225049878, guid: 67567868fd7d7aa429bcbee4808cb2a2,
-        type: 3}
-      propertyPath: vegetalRendererPrefab
-      value: 
-      objectReference: {fileID: 1671596725726041444, guid: b5916a3d79ac3844cb23e8c0ba02bd53,
-        type: 3}
     - target: {fileID: 9128932218613544492, guid: 67567868fd7d7aa429bcbee4808cb2a2,
         type: 3}
       propertyPath: m_Name
@@ -23287,26 +23314,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 5120149803603304868, guid: 6fedef5a912fffc4595665c61e57b37e,
-        type: 3}
-      propertyPath: minY
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5120149803603304868, guid: 6fedef5a912fffc4595665c61e57b37e,
-        type: 3}
-      propertyPath: maxY
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 5120149803603304868, guid: 6fedef5a912fffc4595665c61e57b37e,
-        type: 3}
-      propertyPath: minRotX
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 5120149803603304868, guid: 6fedef5a912fffc4595665c61e57b37e,
-        type: 3}
-      propertyPath: maxRotX
-      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5120149803603304869, guid: 6fedef5a912fffc4595665c61e57b37e,
         type: 3}

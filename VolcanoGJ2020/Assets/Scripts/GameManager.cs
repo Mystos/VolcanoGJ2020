@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
     public string sandGroundTag = "sandGround";
     public string ressourceTag = "ressource";
     public string rampTag = "ramp";
+    public uint levelMaxNbrHeart = 5;
+
 
     // Current Ressources
     [Space]
@@ -128,6 +131,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        PauseMenu.IsGameWin = CheckWin();
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             LevelUp();
@@ -225,5 +230,15 @@ public class GameManager : MonoBehaviour
         }
 
         CurrentMotherTreeLevelModel.SetActive(true);
+    }
+
+
+    public bool CheckWin()
+    {
+        if(treeLevel >= levelMaxNbrHeart)
+        {
+            return true;
+        }
+        return false;
     }
 }
