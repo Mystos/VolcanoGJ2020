@@ -39,7 +39,7 @@ public class TreeVegetalManager : MonoBehaviour
                     float randomScale = Random.Range(GameManager.Instance.randomScaleMinFactor, GameManager.Instance.randomScaleMaxFactor);
                     go.transform.localScale = new Vector3(randomScale / 100, randomScale / 100, randomScale / 100);
 
-                    if (Physics.Raycast(new Ray(go.transform.position + Vector3.up * 10, Vector3.down), out RaycastHit hit, 10, GameManager.Instance.groundLayer))
+                    if (Physics.Raycast(new Ray(go.transform.position + Vector3.up * 10, Vector3.down), out RaycastHit hit, 100))
                     {
                         if (hit.transform.gameObject.tag == GameManager.Instance.groundTag ||
                         hit.transform.gameObject.tag == GameManager.Instance.sandGroundTag ||
@@ -69,7 +69,7 @@ public class TreeVegetalManager : MonoBehaviour
 
     public Vector3 RandomPosInCircle(float radius)
     {
-        float randomR = radius * Mathf.Sqrt(Random.Range(0f, 1f));
+        float randomR = radius * Mathf.Sqrt(Random.Range(GameManager.Instance.minSpawnRadius, 1f));
         float randomTheta = Random.Range(0f, 1f) * 2 * Mathf.PI;
 
         float x = transform.position.x + randomR * Mathf.Cos(randomTheta);
