@@ -9,6 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Final Scenes/Menu.unity
     guid: 0898d9bd1b9bf0a4e9a43e5435f5ef38
   - enabled: 1
+    path: Assets/Scenes/Final Scenes/TC_TutoScene 1.unity
+    guid: f605f8f74a9523b459ebf0c495e5a7f5
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/VM_Scene_4.unity
+    guid: 24a5a2f0fa6581648a17d05f5abf38be
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/VM_Scene_5.unity
+    guid: 6b9a699e126ac454ca11de1d1f1ac2c4
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/TC_Scene_3.unity
+    guid: 12a375c2918384149a6e3fbf842881a6
+  - enabled: 1
     path: Assets/Scenes/Final Scenes/EndScene.unity
     guid: b6aa8f3ac4ea4f84e9c27ae296e6fb95
   m_configObjects: {}
