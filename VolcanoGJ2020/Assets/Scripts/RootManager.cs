@@ -22,6 +22,8 @@ public class RootManager : MonoBehaviour
     private Transform selectedSource;
     private RootHandle lastHandle;
     private Vector3 rootOffset = new Vector3(0, 0.2f, 0);
+    private float maxHeigt = 1;
+
 
     // Start is called before the first frame update
     void Start()
@@ -114,7 +116,8 @@ public class RootManager : MonoBehaviour
                 else if (hit.transform.gameObject.tag == GameManager.Instance.groundTag ||
                     hit.transform.gameObject.tag == GameManager.Instance.sandGroundTag ||
                     hit.transform.gameObject.tag == GameManager.Instance.saltGroundTag ||
-                    hit.transform.gameObject.tag == GameManager.Instance.ressourceTag)
+                    hit.transform.gameObject.tag == GameManager.Instance.ressourceTag ||
+                    hit.transform.gameObject.tag == GameManager.Instance.rampTag)
 
                 {
                     //If we are trying to place root
@@ -127,7 +130,7 @@ public class RootManager : MonoBehaviour
                             //Get tree
                             Tree tree = selectedSource.GetComponent<Tree>();
                             //Check if hit point is in tree range
-                            if (tree.InRange(hit.point))
+                            if (tree != null && tree.InRange(hit.point) && IsOnSameLevel(tree.transform.position, hit.point))
                             {
                                 //Place root and update connected tree
                                 Root root = Instantiate(rootPrefab, Vector3.zero, Quaternion.identity).GetComponent<Root>();
@@ -142,6 +145,19 @@ public class RootManager : MonoBehaviour
                                     ClearSelection();
                                     return;
                                 }
+                                else if (hit.transform.gameObject.tag == GameManager.Instance.rampTag)
+                                {
+                                    Ramp ramp = hit.transform.GetComponent<Ramp>();
+                                    if (ramp != null)
+                                    {
+                                        Vector3 firstPos = ramp.GetPrimaryPoint(hit.point);
+                                        Vector3 secondPos = ramp.GetSecondaryPoint(hit.point);
+                                        root.TraceRoot(selectedSource.position + rootOffset, firstPos + rootOffset);
+                                        root.ProlongateRoot(secondPos + rootOffset);
+                                        CreateRootHandle(secondPos, root, false);
+                                        return;
+                                    }
+                                }
                                 else
                                 {
                                     root.TraceRoot(selectedSource.position + rootOffset, hit.point + rootOffset);
@@ -151,13 +167,37 @@ public class RootManager : MonoBehaviour
                             }
                         }
                         //If placing from root
-                        else
+                        else if (lastHandle != null)
                         {
                             //Get root connected tree
                             Tree tree = lastHandle.sourceRoot.connectedTree;
                             //If hit point in tree range
-                            if (tree.InRange(hit.point))
+                            if (tree.InRange(hit.point) && IsOnSameLevel(lastHandle.transform.position, hit.point))
                             {
+                                if (hit.transform.gameObject.tag == GameManager.Instance.ressourceTag)
+                                {
+                                    lastHandle.sourceRoot.ProlongateRoot(hit.point + rootOffset);
+                                    Ressource ressource = hit.transform.GetComponent<Ressource>();
+                                    if (ressource != null)
+                                        GameManager.Instance.CollectRessource(ressource);
+                                    Destroy(lastHandle.gameObject);
+                                    ClearSelection();
+                                    return;
+                                }
+                                else if (hit.transform.gameObject.tag == GameManager.Instance.rampTag)
+                                {
+                                    Ramp ramp = hit.transform.GetComponent<Ramp>();
+                                    if (ramp != null)
+                                    {
+                                        Vector3 firstPos = ramp.GetPrimaryPoint(hit.point);
+                                        Vector3 secondPos = ramp.GetSecondaryPoint(hit.point);
+                                        lastHandle.sourceRoot.ProlongateRoot(firstPos + rootOffset);
+                                        lastHandle.sourceRoot.ProlongateRoot(secondPos + rootOffset);
+                                        CreateRootHandle(secondPos, lastHandle.sourceRoot, false);
+                                        return;
+                                    }
+                                }
+
                                 //Then plongate root and create handle
                                 lastHandle.sourceRoot.ProlongateRoot(hit.point + rootOffset);
                                 CreateRootHandle(hit.point, lastHandle.sourceRoot, true);
@@ -192,6 +232,13 @@ public class RootManager : MonoBehaviour
         //Update selected source and last handle
         selectedSource = handle.transform;
         lastHandle = handle;
+    }
+
+    private bool IsOnSameLevel(Vector3 previousPoint, Vector3 newPoint)
+    {
+        if (Mathf.Abs(previousPoint.y - newPoint.y) > maxHeigt)
+            return false;
+        return true;
     }
 
     private void ClearSelection()
