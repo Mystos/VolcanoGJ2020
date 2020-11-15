@@ -136,10 +136,10 @@ public class GameManager : MonoBehaviour
     {
         PauseMenu.IsGameWin = CheckWin();
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            LevelUp();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    LevelUp();
+        //}
     }
 
 
