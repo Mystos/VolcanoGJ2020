@@ -10251,6 +10251,8 @@ MonoBehaviour:
   randomScaleMinFactor: 0
   randomScaleMaxFactor: 0
   CurrentMotherTreeLevelModel: {fileID: 0}
+  minForce: 5
+  maxForce: 5
 --- !u!4 &835277032 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 784eab418a9c8d7429f5a06391660f83,
