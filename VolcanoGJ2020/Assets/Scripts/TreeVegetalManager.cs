@@ -24,13 +24,15 @@ public class TreeVegetalManager : MonoBehaviour
         reloadProgress += Time.deltaTime;
         if (reloadProgress >= reloadTime)
         {
-            if(GameManager.Instance.vegetalAssets.Count > 0)
+            if (GameManager.Instance.vegetalAssets.Count > 0)
             {
                 if (nbrPlant < GameManager.Instance.maxPlant)
                 {
                     GameObject randomAsset = GameManager.Instance.vegetalAssets[Mathf.FloorToInt(Random.Range(0, (float)GameManager.Instance.vegetalAssets.Count))];
                     GameObject go = Instantiate(randomAsset, tree.transform);
                     go.tag = GameManager.Instance.vegetalTag;
+                    Collider col = go.AddComponent<Collider>();
+                    //col.isTrigger = tru
                     go.transform.position = RandomPosInCircle(GetVegetalRadius(tree.Radius)) + new Vector3(0, 0.2f, 0);
                     Quaternion rot = go.transform.rotation;
                     rot.eulerAngles = new Vector3(rot.eulerAngles.x, Random.Range(-180, 180), rot.eulerAngles.z);
@@ -58,7 +60,7 @@ public class TreeVegetalManager : MonoBehaviour
             }
 
             reloadProgress = 0;
-            reloadTime = Random.Range(0.5f,1.5f);
+            reloadTime = Random.Range(0.5f, 1.5f);
 
         }
     }
