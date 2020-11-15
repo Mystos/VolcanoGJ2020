@@ -96,6 +96,8 @@ public class GameManager : MonoBehaviour
     public float randomScaleMinFactor;
     [Range(1f, 10f)]
     public float randomScaleMaxFactor;
+    [Range(0f, 1f)]
+    public float minSpawnRadius;
     [HideInInspector]
     public GameObject CurrentMotherTreeLevelModel;
 
