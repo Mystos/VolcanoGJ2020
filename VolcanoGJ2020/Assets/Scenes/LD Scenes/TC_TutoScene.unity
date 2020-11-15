@@ -1909,18 +1909,6 @@ RectTransform:
   m_AnchoredPosition: {x: 41.551888, y: -26.730545}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &143039093 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1474324392126156817, guid: 6d4fbf51aede3324296964b186dba0e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 491598439}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ccb4b47a610b2468689ac20ff868ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &145090805
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5245,6 +5233,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 205677800}
     m_Modifications:
+    - target: {fileID: 1474324392126156817, guid: 6d4fbf51aede3324296964b186dba0e4,
+        type: 3}
+      propertyPath: bushPrefab
+      value: 
+      objectReference: {fileID: 1192668069}
     - target: {fileID: 5248720344249765065, guid: 6d4fbf51aede3324296964b186dba0e4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6474,6 +6467,26 @@ PrefabInstance:
         type: 3}
       propertyPath: minY
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120149803603304868, guid: 6fedef5a912fffc4595665c61e57b37e,
+        type: 3}
+      propertyPath: startPos.x
+      value: -11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120149803603304868, guid: 6fedef5a912fffc4595665c61e57b37e,
+        type: 3}
+      propertyPath: startPos.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120149803603304868, guid: 6fedef5a912fffc4595665c61e57b37e,
+        type: 3}
+      propertyPath: startPos.z
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120149803603304868, guid: 6fedef5a912fffc4595665c61e57b37e,
+        type: 3}
+      propertyPath: startRotY
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5120149803603304869, guid: 6fedef5a912fffc4595665c61e57b37e,
         type: 3}
@@ -8582,6 +8595,7 @@ MonoBehaviour:
   sandGroundTag: sandGround
   ressourceTag: ressource
   rampTag: ramp
+  levelMaxNbrHeart: 5
   water: 100
   minerals: 100
   cheatActivate: 0
@@ -14181,6 +14195,12 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &1192668069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6054872262569272141, guid: 6d4fbf51aede3324296964b186dba0e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 491598439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1215214343
 GameObject:
   m_ObjectHideFlags: 0
@@ -26031,8 +26051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9c9290556c5d743816f35c323e2e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildManager: {fileID: 143039093}
-  radiusFactor: 1.15
+  radiusFactor: 0.2
   radiusRenderer: {fileID: 314193730}
   rootPrefab: {fileID: 1701899383269479438, guid: 9da4da8c515f93240ba3734a1324bcd7,
     type: 3}

@@ -14,11 +14,11 @@ GameObject:
   - component: {fileID: 160685251971685462}
   - component: {fileID: 160685251971685463}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Volcan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &160685251971685459
 Transform:
