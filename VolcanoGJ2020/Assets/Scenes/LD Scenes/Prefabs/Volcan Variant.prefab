@@ -9217,6 +9217,11 @@ PrefabInstance:
       propertyPath: m_Tangents.Array.data[395].x
       value: 0.99911636
       objectReference: {fileID: 0}
+    - target: {fileID: 160685251971685461, guid: 16fc597aa183c404ebcf3fc07a840b61,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 721b9dc1f5761bc4fb9b09fcb48fc686, type: 2}
     - target: {fileID: 160685251971685462, guid: 16fc597aa183c404ebcf3fc07a840b61,
         type: 3}
       propertyPath: m_Mesh

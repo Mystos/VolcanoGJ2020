@@ -12,15 +12,17 @@ public class GameManager : MonoBehaviour
     public LayerMask treeLayer;
     public LayerMask superMineralLayer;
     public LayerMask fireBallLayer;
-    public string groundTag = "ground";
-    public string treeTag = "tree";
-    public string rootHandleTag = "rootHandle";
-    public string saltGroundTag = "saltGround";
-    public string superMineralTag = "superMineral";
-    public string sandGroundTag = "sandGround";
-    public string ressourceTag = "ressource";
-    public string rampTag = "ramp";
     public uint levelMaxNbrHeart = 5;
+
+    [HideInInspector] public string groundTag = "ground";
+    [HideInInspector] public string treeTag = "tree";
+    [HideInInspector] public string rootHandleTag = "rootHandle";
+    [HideInInspector] public string saltGroundTag = "saltGround";
+    [HideInInspector] public string superMineralTag = "superMineral";
+    [HideInInspector] public string sandGroundTag = "sandGround";
+    [HideInInspector] public string ressourceTag = "ressource";
+    [HideInInspector] public string rampTag = "ramp";
+    [HideInInspector] public string vegetalTag = "vegetal";
 
 
     // Current Ressources
@@ -108,6 +110,8 @@ public class GameManager : MonoBehaviour
     public int minLavaCount = 5;
     public int maxLavaCount = 20;
     public float launchRadius = 5;
+
+    public int Score { get; set; }
 
     // Private Variable
     private Volcano[] volcanos;
@@ -208,7 +212,7 @@ public class GameManager : MonoBehaviour
 
     public void SetLevelStats(uint level)
     {
-        if(CurrentMotherTreeLevelModel != null)
+        if (CurrentMotherTreeLevelModel != null)
         {
             CurrentMotherTreeLevelModel.SetActive(false);
         }
@@ -255,7 +259,7 @@ public class GameManager : MonoBehaviour
 
     public bool CheckWin()
     {
-        if(treeLevel >= levelMaxNbrHeart)
+        if (treeLevel >= levelMaxNbrHeart)
         {
             return true;
         }
