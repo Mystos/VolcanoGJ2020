@@ -1,0 +1,242 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7936410392062705326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7936410392062705325}
+  - component: {fileID: 7936410392062705324}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7936410392062705325
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7936410392062705326}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7613847970888712556}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7936410392062705324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7936410392062705326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4faf9a7ce827d4997a5e0a2339162f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  treeLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  superMineralLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  fireBallLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  groundTag: ground
+  treeTag: tree
+  rootHandleTag: rootHandle
+  saltGroundTag: saltGround
+  superMineralTag: superMineral
+  sandGroundTag: sandGround
+  ressourceTag: ressource
+  rampTag: ramp
+  levelMaxNbrHeart: 5
+  water: 0
+  minerals: 0
+  cheatActivate: 0
+  treeLevel: 0
+  growingPower: 50
+  waterPuddle: 20
+  waterPond: 60
+  waterLake: 100
+  oxides: 20
+  halogens: 60
+  nitrates: 100
+  treeRadiusEarth: 15
+  treeRadiusSuperMineral: 30
+  treeRadiusSand: 10
+  sanitizeRadius: 15
+  shieldRadius: 15
+  superMineralCheckRadius: 5
+  rootWaterCost: 0
+  rootMineralCost: 0
+  cuttingWaterCost: 5
+  cuttingMineralCost: 5
+  sanitizerWaterCost: 7
+  sanitizerMineralCost: 3
+  shieldWaterCost: 3
+  shieldMineralCost: 7
+  saltFactor: 2
+  powerLvl1: 10
+  powerLvl2: 20
+  powerLvl3: 40
+  powerLvl4: 60
+  powerLvl5: 80
+  powerLvl6: 100
+  maxNbrPlantLvl1: 20
+  maxNbrPlantLvl2: 30
+  maxNbrPlantLvl3: 40
+  maxNbrPlantLvl4: 50
+  maxNbrPlantLvl5: 60
+  maxNbrPlantLvl6: 70
+  prefabMotherTreeLvl1: {fileID: 7293095160443390064}
+  prefabMotherTreeLvl2: {fileID: 5625310527152053747}
+  prefabMotherTreeLvl3: {fileID: 4135813535101614325}
+  prefabMotherTreeLvl4: {fileID: 4456742946854618934}
+  prefabMotherTreeLvl5: {fileID: 7288391932544522200}
+  prefabMotherTreeLvl6: {fileID: 3269738188909458586}
+  maxPlant: 20
+  vegetalAssets:
+  - {fileID: 919132149155446097, guid: bdfa9626e4675694bbb23606f085f011, type: 3}
+  - {fileID: 919132149155446097, guid: aed39f46d027ad04baad9c625b3058d0, type: 3}
+  - {fileID: 919132149155446097, guid: 91a5afb1fdfed374396812bbe2cffa7a, type: 3}
+  - {fileID: 919132149155446097, guid: 5c95f4e899a0dee40ba3d04866075a5b, type: 3}
+  - {fileID: 919132149155446097, guid: 99b6a3d94db82f146aeb641c244f9370, type: 3}
+  - {fileID: 919132149155446097, guid: c27fe4ecc03fee7408030d5496421316, type: 3}
+  - {fileID: 919132149155446097, guid: f80cd94b9ef97994c92b618fdf1efe2b, type: 3}
+  - {fileID: 919132149155446097, guid: 7d8cd785e8843d0409e5fec6fce836b0, type: 3}
+  - {fileID: 919132149155446097, guid: 0400bc810b3a66d42be11e87f327248e, type: 3}
+  - {fileID: 919132149155446097, guid: 2cd996f9147cd8f4dbe9209bebb142ea, type: 3}
+  - {fileID: 919132149155446097, guid: e4ae348907e8e6f4cbf4b160d1ac4a9b, type: 3}
+  - {fileID: 919132149155446097, guid: 950bb5cce0fa6b64fa35cfb2f9337462, type: 3}
+  - {fileID: 919132149155446097, guid: ab3c39e774f9d3f49be84c83fbe2f89b, type: 3}
+  randomScaleMinFactor: 0.183
+  randomScaleMaxFactor: 1
+  CurrentMotherTreeLevelModel: {fileID: 0}
+  minForce: 5
+  maxForce: 5
+--- !u!1001 &144631022757892845
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7936410392062705325}
+    m_Modifications:
+    - target: {fileID: 7757458353770124161, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757458353770124161, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757458353770124161, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757458353770124161, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757458353770124161, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757458353770124161, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757458353770124161, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757458353770124161, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757458353770124161, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757458353770124161, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757458353770124161, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9128932218613544492, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+        type: 3}
+      propertyPath: m_Name
+      value: MotherTree
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 67567868fd7d7aa429bcbee4808cb2a2, type: 3}
+--- !u!4 &7613847970888712556 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7757458353770124161, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 144631022757892845}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7293095160443390064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7437574175237413533, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 144631022757892845}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5625310527152053747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5481104191459266334, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 144631022757892845}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4135813535101614325 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4279696563234122264, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 144631022757892845}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4456742946854618934 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4600529544330548699, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 144631022757892845}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7288391932544522200 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7432141146100319541, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 144631022757892845}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3269738188909458586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3414191038355891831, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 144631022757892845}
+  m_PrefabAsset: {fileID: 0}

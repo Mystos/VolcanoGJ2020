@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
     public float randomScaleMinFactor;
     [Range(1f, 10f)]
     public float randomScaleMaxFactor;
+    [HideInInspector]
     public GameObject CurrentMotherTreeLevelModel;
 
     [Space]
@@ -236,7 +237,7 @@ public class GameManager : MonoBehaviour
         }
 
         CurrentMotherTreeLevelModel.SetActive(true);
-        AudioManager.instance.Play("DrawMinerals");
+        AudioManager.instance.Play("LevelUp");
 
     }
 
@@ -245,6 +246,7 @@ public class GameManager : MonoBehaviour
     {
         if(treeLevel >= levelMaxNbrHeart)
         {
+            AudioManager.instance.Play("FinishLevel");
             return true;
         }
         return false;

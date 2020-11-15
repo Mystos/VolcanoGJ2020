@@ -100,4 +100,18 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: LevelUp
+    clip: {fileID: 8300000, guid: a545e6c535a2fff46a5f29acae8d2dc6, type: 3}
+    mixer: {fileID: 5877103697082629091, guid: 55177f1895e7c8f4da79a2aa7848a0ff, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FinishLevel
+    clip: {fileID: 8300000, guid: ad84304e5221d794da2f8629e2b7c876, type: 3}
+    mixer: {fileID: 5877103697082629091, guid: 55177f1895e7c8f4da79a2aa7848a0ff, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   mainMixer: {fileID: 24300002, guid: 55177f1895e7c8f4da79a2aa7848a0ff, type: 2}
