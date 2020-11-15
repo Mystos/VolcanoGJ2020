@@ -5,10 +5,10 @@ using UnityEngine;
 public class LavaRock : MonoBehaviour
 {
     public Rigidbody rigidbody;
-
-    private float minVelocity = 0.2f;
-    float lifeTime = 0f;
     public float maxLifeTime = 15;
+
+    float lifeTime = 0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +19,9 @@ public class LavaRock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
+        if (Input.GetKeyDown(KeyCode.C))
+            Launch(transform.forward, GameManager.Instance.maxForce);
 
-        }
         lifeTime += Time.deltaTime;
         if (lifeTime > maxLifeTime)
             Destroy(gameObject);
@@ -30,6 +29,7 @@ public class LavaRock : MonoBehaviour
 
     public void Launch(Vector3 direction, float force)
     {
+        rigidbody.velocity = Vector3.zero;
         rigidbody.AddForce(force * direction);
     }
 }

@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
     [Space]
     [Header("Volcano")]
     public float minForce = 5;
-    public float maxForce = 5;
+    public float maxForce = 100;
 
     // Private Variable
     internal Tree motherTree;
