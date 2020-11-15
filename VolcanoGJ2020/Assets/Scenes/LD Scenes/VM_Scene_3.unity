@@ -24229,16 +24229,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1744057398}
     m_Modifications:
-    - target: {fileID: 728889274573822277, guid: 52485da747d233548ae0785e438d03b1,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 728889274573822277, guid: 52485da747d233548ae0785e438d03b1,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5333534587399024413, guid: 52485da747d233548ae0785e438d03b1,
         type: 3}
       propertyPath: m_Name
@@ -24937,7 +24927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9c9290556c5d743816f35c323e2e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radiusFactor: 0.2
+  radiusFactor: 2
   radiusRenderer: {fileID: 1746125154}
   rootPrefab: {fileID: 1701899383269479438, guid: 9da4da8c515f93240ba3734a1324bcd7,
     type: 3}
