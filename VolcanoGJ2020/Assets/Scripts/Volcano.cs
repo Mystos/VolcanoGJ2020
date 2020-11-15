@@ -6,14 +6,6 @@ public class Volcano : MonoBehaviour
 {
     public GameObject lavaRockPrefab;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            StartEruption();
-        }
-    }
-
     public void StartEruption()
     {
         int count = Random.Range(GameManager.Instance.minLavaCount, GameManager.Instance.minLavaCount + 1);
