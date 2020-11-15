@@ -9,7 +9,9 @@ public class PauseMenu : MonoBehaviour
 {
 
     public static bool IsGamePaused = false;
+    public static bool IsGameWin = false;
 
+    public GameObject winMenuUI;
     public GameObject pauseMenuUI;
     public Slider volumeSlider;
     public Slider volumeMusicSlider;
@@ -31,18 +33,24 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (IsGameWin)
         {
-            if (IsGamePaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-
-            }
+            Win();
         }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (IsGamePaused)
+                {
+                    Resume();
+                }
+                else
+                {
+                    Pause();
+                }
+            }
+        }  
     }
 
     public void Resume()
@@ -89,5 +97,15 @@ public class PauseMenu : MonoBehaviour
                 PlayerPrefs.SetFloat("SoundVol", volumeSoundSlider.value);
                 break;
         }
+    }
+
+    public void Win()
+    {
+        winMenuUI.SetActive(true);
+    }
+
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
