@@ -69,15 +69,21 @@ public class GameManager : MonoBehaviour
     public uint powerLvl3 = 80;
     public uint powerLvl4 = 40;
     public uint powerLvl5 = 80;
+    public uint powerLvl6 = 80;
 
     public uint maxNbrPlantLvl1 = 20;
     public uint maxNbrPlantLvl2 = 50;
     public uint maxNbrPlantLvl3 = 150;
     public uint maxNbrPlantLvl4 = 200;
     public uint maxNbrPlantLvl5 = 300;
+    public uint maxNbrPlantLvl6 = 300;
 
-
-
+    public GameObject prefabMotherTreeLvl1;
+    public GameObject prefabMotherTreeLvl2;
+    public GameObject prefabMotherTreeLvl3;
+    public GameObject prefabMotherTreeLvl4;
+    public GameObject prefabMotherTreeLvl5;
+    public GameObject prefabMotherTreeLvl6;
 
     [Space]
     [Header("Vegetal Generation")]
@@ -87,6 +93,8 @@ public class GameManager : MonoBehaviour
     public float randomScaleMinFactor;
     [Range(1f, 10f)]
     public float randomScaleMaxFactor;
+    public GameObject CurrentMotherTreeLevelModel;
+
 
     // Private Variable
     internal Tree motherTree;
@@ -111,6 +119,15 @@ public class GameManager : MonoBehaviour
         motherTree = this.GetComponent<Tree>();
         listTree = new List<Tree>();
         listTree.Add(motherTree);
+        LevelUp();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            LevelUp();
+        }
     }
 
 
@@ -148,10 +165,61 @@ public class GameManager : MonoBehaviour
                 minerals += nitrates;
                 break;
             case ERessourceType.coeur:
+                LevelUp();
                 break;
             default:
                 break;
         }
         ressource.Active = false;
+    }
+
+    public void LevelUp()
+    {
+        treeLevel++;
+        SetLevelStats(treeLevel);
+    }
+
+    public void SetLevelStats(uint level)
+    {
+        if(CurrentMotherTreeLevelModel != null)
+        {
+            CurrentMotherTreeLevelModel.SetActive(false);
+        }
+
+        switch (treeLevel)
+        {
+            case 1:
+                maxPlant = maxNbrPlantLvl1;
+                growingPower = maxNbrPlantLvl1;
+                CurrentMotherTreeLevelModel = prefabMotherTreeLvl1;
+                break;
+            case 2:
+                maxPlant = maxNbrPlantLvl2;
+                growingPower = maxNbrPlantLvl2;
+                CurrentMotherTreeLevelModel = prefabMotherTreeLvl2;
+                break;
+            case 3:
+                maxPlant = maxNbrPlantLvl3;
+                growingPower = maxNbrPlantLvl3;
+                CurrentMotherTreeLevelModel = prefabMotherTreeLvl3;
+                break;
+            case 4:
+                maxPlant = maxNbrPlantLvl4;
+                growingPower = maxNbrPlantLvl4;
+                CurrentMotherTreeLevelModel = prefabMotherTreeLvl4;
+                break;
+            case 5:
+                maxPlant = maxNbrPlantLvl5;
+                growingPower = maxNbrPlantLvl5;
+                CurrentMotherTreeLevelModel = prefabMotherTreeLvl5;
+                break;
+            case 6:
+                maxPlant = maxNbrPlantLvl6;
+                growingPower = maxNbrPlantLvl6;
+                CurrentMotherTreeLevelModel = prefabMotherTreeLvl6;
+                break;
+        }
+
+        CurrentMotherTreeLevelModel.SetActive(true);
     }
 }
