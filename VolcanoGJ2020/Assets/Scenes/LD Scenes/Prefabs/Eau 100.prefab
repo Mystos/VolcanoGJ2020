@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3980351217399334477}
   - component: {fileID: 3980351217399334476}
   - component: {fileID: 3980351217399334475}
+  - component: {fileID: 3980351217399334474}
   - component: {fileID: 6813994868899035532}
-  - component: {fileID: 8547512459352235109}
   m_Layer: 0
   m_Name: Eau 100
   m_TagString: ressource
@@ -863,20 +863,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3980351217399334473}
   m_Mesh: {fileID: 0}
---- !u!114 &6813994868899035532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3980351217399334473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 718725d22290dd748b57380d288b72ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 2
---- !u!64 &8547512459352235109
+--- !u!64 &3980351217399334474
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -890,6 +877,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &6813994868899035532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3980351217399334473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718725d22290dd748b57380d288b72ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
 --- !u!1001 &3466679585252105118
 PrefabInstance:
   m_ObjectHideFlags: 0
