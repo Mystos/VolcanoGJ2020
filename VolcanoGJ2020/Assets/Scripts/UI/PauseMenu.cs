@@ -34,7 +34,7 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         if (IsGameWin)
-        {
+        { 
             Win();
         }
         else
@@ -101,7 +101,12 @@ public class PauseMenu : MonoBehaviour
 
     public void Win()
     {
-        winMenuUI.SetActive(true);
+        if (!winMenuUI.activeInHierarchy)
+        {
+            winMenuUI.SetActive(true);
+            AudioManager.instance.Play("FinishLevel");
+
+        }
     }
 
     public void LoadNextLevel()
