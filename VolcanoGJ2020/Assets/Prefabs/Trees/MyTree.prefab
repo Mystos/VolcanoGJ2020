@@ -41,6 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6087631429190911228}
+  - component: {fileID: 5741364616642126090}
   m_Layer: 0
   m_Name: MyTree
   m_TagString: tree
@@ -63,6 +64,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5741364616642126090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4711856741961392465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7331dfc886ada65409bf89ef9af0ee45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radiusFactor: 1.15
+  vegetalRendererPrefab: {fileID: 1671596725726041444, guid: b5916a3d79ac3844cb23e8c0ba02bd53,
+    type: 3}
+  vegetalRenderer: {fileID: 0}
+  nbrPlant: 0
+  reloadTime: 2
+  reloadProgress: 0
 --- !u!1 &7143275374032201819
 GameObject:
   m_ObjectHideFlags: 0

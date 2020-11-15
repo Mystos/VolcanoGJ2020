@@ -602,6 +602,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7757458353770124161}
   - component: {fileID: 1697180053}
+  - component: {fileID: 1330175888}
   m_Layer: 8
   m_Name: MotherTree
   m_TagString: tree
@@ -639,3 +640,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isConnected: 0
   type: 0
+--- !u!114 &1330175888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9128932218613544492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7331dfc886ada65409bf89ef9af0ee45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radiusFactor: 1.15
+  vegetalRendererPrefab: {fileID: 1671596725726041444, guid: b5916a3d79ac3844cb23e8c0ba02bd53,
+    type: 3}
+  vegetalRenderer: {fileID: 0}
+  nbrPlant: 0
+  reloadTime: 2
+  reloadProgress: 0
