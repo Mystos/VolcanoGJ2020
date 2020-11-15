@@ -246,7 +246,6 @@ public class GameManager : MonoBehaviour
     {
         if(treeLevel >= levelMaxNbrHeart)
         {
-            AudioManager.instance.Play("FinishLevel");
             return true;
         }
         return false;

@@ -5327,7 +5327,7 @@ MonoBehaviour:
     type: 3}
   sanitizerPrefab: {fileID: 9128932218613544492, guid: e7101050766d7c846bca522add7d432d,
     type: 3}
-  bushPrefab: {fileID: 9128932218613544492, guid: 9ca5e2d137259544ab86824b3eb47a26,
+  bushPrefab: {fileID: 9128932218613544492, guid: fe3b1f5fd24261e43a384a59fdc06361,
     type: 3}
   panelTransform: {fileID: 5303490898755287868}
   waterPriceCuttingTxt: {fileID: 6897842419997831590}
