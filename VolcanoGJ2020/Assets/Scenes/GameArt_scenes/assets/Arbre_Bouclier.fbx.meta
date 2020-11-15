@@ -3,7 +3,17 @@ guid: 1d7296b84fcda5c429e8dd7a9561ea19
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plante01
+    second: {fileID: 2100000, guid: 09f1078359d83864b97ecbd7998d1ae3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tronc_bouclier
+    second: {fileID: 2100000, guid: 47c38f5442b3ffd41883e9ce6e19b72f, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

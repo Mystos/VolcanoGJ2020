@@ -3,7 +3,17 @@ guid: a871e8b9e750692479b289f5607393de
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Text_Minerai
+    second: {fileID: 2100000, guid: 0709d1b5d967452408550b65023add78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Text_Minerai_cris01
+    second: {fileID: 2100000, guid: c4962da3fb7e3a64c826cacaf847ca09, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
