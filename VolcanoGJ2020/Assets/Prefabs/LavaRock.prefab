@@ -4880,7 +4880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7880948480781761262}
-  maxLifeTime: 15
+  maxLifeTime: 2000
 --- !u!135 &9084950243846017661
 SphereCollider:
   m_ObjectHideFlags: 0
