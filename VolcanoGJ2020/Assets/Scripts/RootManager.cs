@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class RootManager : MonoBehaviour
 {
-    public BuildManager buildManager;
-
     [Header("Radius renderer")]
     public float radiusFactor = 6;
     public GameObject radiusRenderer;
@@ -16,6 +14,7 @@ public class RootManager : MonoBehaviour
     public GameObject rootHandlePrefab;
 
     //Root building
+    private BuildManager buildManager;
     private Camera camera;
     private bool isPlacing = false;
     private bool placingFromTree = false;
@@ -28,6 +27,7 @@ public class RootManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        buildManager = FindObjectOfType<BuildManager>();
         ClearSelection();
         buildManager.onTreePlaced += TreePlaced;
         camera = FindObjectOfType<Camera>();
