@@ -9,22 +9,9 @@ public class LavaRock : MonoBehaviour
 
     float lifeTime = 0f;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            Launch(transform.forward, GameManager.Instance.maxForce);
-
-        }
-
         lifeTime += Time.deltaTime;
         if (lifeTime > maxLifeTime)
             Destroy(gameObject);
@@ -34,6 +21,14 @@ public class LavaRock : MonoBehaviour
     {
         rigidbody.velocity = Vector3.zero;
         rigidbody.AddForce(force * direction);
-        AudioManager.instance.Play("Explosion");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 1 << GameManager.Instance.treeLayer)
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
     }
 }
