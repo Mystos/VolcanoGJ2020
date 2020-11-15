@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public string superMineralTag = "superMineral";
     public string sandGroundTag = "sandGround";
     public string ressourceTag = "ressource";
+    public string rampTag = "ramp";
     public float superMineralCheckRadius = 5f;
 
     // Current Ressources

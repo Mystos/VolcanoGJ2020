@@ -11,6 +11,7 @@ TagManager:
   - superMineral
   - saltGround
   - ressource
+  - ramp
   layers:
   - Default
   - TransparentFX
