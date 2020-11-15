@@ -31,7 +31,7 @@ public class TreeVegetalManager : MonoBehaviour
                     GameObject randomAsset = GameManager.Instance.vegetalAssets[Mathf.FloorToInt(Random.Range(0, (float)GameManager.Instance.vegetalAssets.Count))];
                     GameObject go = Instantiate(randomAsset, tree.transform);
                     go.tag = GameManager.Instance.vegetalTag;
-                    Collider col = go.AddComponent<Collider>();
+                    go.AddComponent<SphereCollider>();
                     //col.isTrigger = tru
                     go.transform.position = RandomPosInCircle(GetVegetalRadius(tree.Radius)) + new Vector3(0, 0.2f, 0);
                     Quaternion rot = go.transform.rotation;
