@@ -65,8 +65,8 @@ MonoBehaviour:
   ressourceTag: ressource
   rampTag: ramp
   levelMaxNbrHeart: 5
-  water: 0
-  minerals: 0
+  water: 100
+  minerals: 100
   cheatActivate: 0
   treeLevel: 0
   growingPower: 50
@@ -76,12 +76,12 @@ MonoBehaviour:
   oxides: 20
   halogens: 60
   nitrates: 100
-  treeRadiusEarth: 15
-  treeRadiusSuperMineral: 30
-  treeRadiusSand: 10
+  treeRadiusEarth: 10
+  treeRadiusSuperMineral: 20
+  treeRadiusSand: 5
   sanitizeRadius: 15
   shieldRadius: 15
-  superMineralCheckRadius: 5
+  superMineralCheckRadius: 3
   rootWaterCost: 0
   rootMineralCost: 0
   cuttingWaterCost: 5
@@ -117,15 +117,16 @@ MonoBehaviour:
   - {fileID: 919132149155446097, guid: 5c95f4e899a0dee40ba3d04866075a5b, type: 3}
   - {fileID: 919132149155446097, guid: 99b6a3d94db82f146aeb641c244f9370, type: 3}
   - {fileID: 919132149155446097, guid: c27fe4ecc03fee7408030d5496421316, type: 3}
-  - {fileID: 919132149155446097, guid: f80cd94b9ef97994c92b618fdf1efe2b, type: 3}
+  - {fileID: 919132149155446097, guid: e4ae348907e8e6f4cbf4b160d1ac4a9b, type: 3}
   - {fileID: 919132149155446097, guid: 7d8cd785e8843d0409e5fec6fce836b0, type: 3}
   - {fileID: 919132149155446097, guid: 0400bc810b3a66d42be11e87f327248e, type: 3}
   - {fileID: 919132149155446097, guid: 2cd996f9147cd8f4dbe9209bebb142ea, type: 3}
   - {fileID: 919132149155446097, guid: e4ae348907e8e6f4cbf4b160d1ac4a9b, type: 3}
   - {fileID: 919132149155446097, guid: 950bb5cce0fa6b64fa35cfb2f9337462, type: 3}
   - {fileID: 919132149155446097, guid: ab3c39e774f9d3f49be84c83fbe2f89b, type: 3}
-  randomScaleMinFactor: 0.183
+  randomScaleMinFactor: 0.145
   randomScaleMaxFactor: 1
+  minSpawnRadius: 0.5
   CurrentMotherTreeLevelModel: {fileID: 0}
   minForce: 5
   maxForce: 5
