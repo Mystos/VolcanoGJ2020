@@ -12,8 +12,8 @@ public class UIRessources : MonoBehaviour
 
     private void Update()
     {
-        waterText.text = "Water : " + GameManager.Instance.water;
-        mineralsText.text = "Minerals : " + GameManager.Instance.minerals;
+        waterText.text = GameManager.Instance.water.ToString();
+        mineralsText.text = GameManager.Instance.minerals.ToString();
         nbrHeartText.text = GameManager.Instance.treeLevel.ToString();
     }
 }
