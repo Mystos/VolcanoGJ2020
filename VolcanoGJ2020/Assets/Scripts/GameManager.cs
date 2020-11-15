@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     public string sandGroundTag = "sandGround";
     public string ressourceTag = "ressource";
     public string rampTag = "ramp";
-    public float superMineralCheckRadius = 5f;
 
     // Current Ressources
     [Space]
@@ -50,6 +49,7 @@ public class GameManager : MonoBehaviour
     public int treeRadiusSand = 10;
     public int sanitizeRadius = 15;
     public int shieldRadius = 15;
+    public float superMineralCheckRadius = 5f;
 
     [Header("Cost")]
     public int rootWaterCost = 0;

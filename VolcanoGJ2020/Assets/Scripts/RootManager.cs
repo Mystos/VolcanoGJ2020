@@ -135,6 +135,7 @@ public class RootManager : MonoBehaviour
                                 //Place root and update connected tree
                                 Root root = Instantiate(rootPrefab, Vector3.zero, Quaternion.identity).GetComponent<Root>();
                                 root.connectedTree = tree;
+                                pointInRange = true;
 
                                 if (hit.transform.gameObject.tag == GameManager.Instance.ressourceTag)
                                 {
@@ -155,7 +156,6 @@ public class RootManager : MonoBehaviour
                                         root.TraceRoot(selectedSource.position + rootOffset, firstPos + rootOffset);
                                         root.ProlongateRoot(secondPos + rootOffset);
                                         CreateRootHandle(secondPos, root, false);
-                                        return;
                                     }
                                 }
                                 else
@@ -163,7 +163,6 @@ public class RootManager : MonoBehaviour
                                     root.TraceRoot(selectedSource.position + rootOffset, hit.point + rootOffset);
                                     CreateRootHandle(hit.point, root, false);
                                 }
-                                pointInRange = true;
                             }
                         }
                         //If placing from root
@@ -174,6 +173,7 @@ public class RootManager : MonoBehaviour
                             //If hit point in tree range
                             if (tree.InRange(hit.point) && IsOnSameLevel(lastHandle.transform.position, hit.point))
                             {
+                                pointInRange = true;
                                 if (hit.transform.gameObject.tag == GameManager.Instance.ressourceTag)
                                 {
                                     lastHandle.sourceRoot.ProlongateRoot(hit.point + rootOffset);
@@ -193,15 +193,15 @@ public class RootManager : MonoBehaviour
                                         Vector3 secondPos = ramp.GetSecondaryPoint(hit.point);
                                         lastHandle.sourceRoot.ProlongateRoot(firstPos + rootOffset);
                                         lastHandle.sourceRoot.ProlongateRoot(secondPos + rootOffset);
-                                        CreateRootHandle(secondPos, lastHandle.sourceRoot, false);
-                                        return;
+                                        CreateRootHandle(secondPos, lastHandle.sourceRoot, true);
                                     }
                                 }
-
-                                //Then plongate root and create handle
-                                lastHandle.sourceRoot.ProlongateRoot(hit.point + rootOffset);
-                                CreateRootHandle(hit.point, lastHandle.sourceRoot, true);
-                                pointInRange = true;
+                                else
+                                {
+                                    //Then prolongate root and create handle
+                                    lastHandle.sourceRoot.ProlongateRoot(hit.point + rootOffset);
+                                    CreateRootHandle(hit.point, lastHandle.sourceRoot, true);
+                                }
                             }
                         }
 

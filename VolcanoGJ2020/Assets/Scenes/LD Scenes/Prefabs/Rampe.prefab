@@ -42,8 +42,8 @@ GameObject:
   - component: {fileID: 4655051520599040292}
   - component: {fileID: 4655051520599040293}
   - component: {fileID: 4655051520599040290}
-  - component: {fileID: 4655051520599040291}
   - component: {fileID: 1071778121}
+  - component: {fileID: 2452878757043505094}
   m_Layer: 0
   m_Name: Rampe
   m_TagString: ramp
@@ -354,20 +354,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4655051520599040288}
   m_Mesh: {fileID: 0}
---- !u!64 &4655051520599040291
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4655051520599040288}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!114 &1071778121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,6 +368,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   downTransform: {fileID: 8885832843879680527}
   topTransform: {fileID: 4651734167441998033}
+--- !u!64 &2452878757043505094
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4655051520599040288}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &4963448247507518713
 GameObject:
   m_ObjectHideFlags: 0
