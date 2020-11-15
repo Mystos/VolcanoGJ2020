@@ -63,13 +63,24 @@ public class GameManager : MonoBehaviour
 
     [Space]
     [Header("GrowingPowerLevel")]
-    public int powerLvl1 = 20;
-    public int powerLvl2 = 40;
-    public int powerLvl3 = 80;
+    public uint powerLvl1 = 20;
+    public uint powerLvl2 = 40;
+    public uint powerLvl3 = 80;
+    public uint powerLvl4 = 40;
+    public uint powerLvl5 = 80;
+
+    public uint maxNbrPlantLvl1 = 20;
+    public uint maxNbrPlantLvl2 = 50;
+    public uint maxNbrPlantLvl3 = 150;
+    public uint maxNbrPlantLvl4 = 200;
+    public uint maxNbrPlantLvl5 = 300;
+
+
 
 
     [Space]
     [Header("Vegetal Generation")]
+    public uint maxPlant;
     public List<GameObject> vegetalAssets;
     [Range(0.1f, 1f)]
     public float randomScaleMinFactor;

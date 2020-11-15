@@ -10,8 +10,6 @@ public class TreeVegetalManager : MonoBehaviour
     public float radiusFactor = 1.15f;
     public GameObject vegetalRendererPrefab;
     public GameObject vegetalRenderer;
-
-    public int maxPlant = 10;
     public int nbrPlant = 0;
     public float reloadTime = 2f;
     public float reloadProgress = 0f;
@@ -30,17 +28,37 @@ public class TreeVegetalManager : MonoBehaviour
         reloadProgress += Time.deltaTime;
         if (reloadProgress >= reloadTime)
         {
-            if(nbrPlant <= maxPlant)
+            if(nbrPlant < GameManager.Instance.maxPlant)
             {
                 GameObject randomAsset = GameManager.Instance.vegetalAssets[Mathf.FloorToInt(Random.Range(0, (float)GameManager.Instance.vegetalAssets.Count))];
                 GameObject go = Instantiate(randomAsset, tree.transform);
-                go.transform.position = RandomPosInCircle(GetVegetalRadius(tree.Radius));
+
+                go.transform.position = RandomPosInCircle(GetVegetalRadius(tree.Radius)) + new Vector3(0,0.2f,0);
+                Quaternion rot = go.transform.rotation;
+                rot.eulerAngles = new Vector3(rot.eulerAngles.x, Random.Range(-180, 180), rot.eulerAngles.z);
+                go.transform.rotation = rot;
 
                 float randomScale = Random.Range(GameManager.Instance.randomScaleMinFactor, GameManager.Instance.randomScaleMaxFactor);
-                go.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                nbrPlant++;
+                go.transform.localScale = new Vector3(randomScale/100, randomScale / 100, randomScale / 100);
+
+                if(Physics.Raycast(new Ray(go.transform.position, Vector3.down), out RaycastHit hit, 10, GameManager.Instance.groundLayer))
+                {
+                    if (hit.transform.gameObject.tag == GameManager.Instance.groundTag ||
+                    hit.transform.gameObject.tag == GameManager.Instance.sandGroundTag ||
+                    hit.transform.gameObject.tag == GameManager.Instance.saltGroundTag)
+                    {
+                        nbrPlant++;
+                    }
+                }
+                else
+                {
+                    Destroy(go);
+                }
+
             }
             reloadProgress = 0;
+            reloadTime = Random.Range(0.5f,1.5f);
+
         }
     }
 
