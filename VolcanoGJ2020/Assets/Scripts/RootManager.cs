@@ -211,6 +211,9 @@ public class RootManager : MonoBehaviour
                                     CreateRootHandle(hit.point, lastHandle.sourceRoot, true);
                                 }
                             }
+
+                            AudioManager.instance.Play("GrowRoots");
+
                         }
 
                         //If point in range
@@ -262,6 +265,8 @@ public class RootManager : MonoBehaviour
     {
         Destroy(lastHandle.gameObject);
         ClearSelection();
+        AudioManager.instance.Play("GrowTrees");
+
     }
 
     private void UpdateSelectionEffect(Vector3 position, Vector3 size)
