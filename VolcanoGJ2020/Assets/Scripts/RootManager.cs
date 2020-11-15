@@ -35,13 +35,13 @@ public class RootManager : MonoBehaviour
     void Update()
     {
         //Clear selection if right click
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1) && !PauseMenu.IsGamePaused)
         {
             ClearSelection();
         }
 
         //If left click
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !PauseMenu.IsGamePaused)
         {
             //Cancel click if mouse is hovering build panel
             if (buildManager.gameObject.activeSelf && buildManager.CheckHovering(Input.mousePosition))
