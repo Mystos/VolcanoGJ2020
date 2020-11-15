@@ -9,6 +9,7 @@ public class BuildManager : MonoBehaviour
     public GameObject cuttingPrefab;
     public GameObject shieldPrefab;
     public GameObject sanitizerPrefab;
+    public GameObject bushPrefab;
 
     public RectTransform panelTransform;
     public Text waterPriceCuttingTxt;
@@ -21,6 +22,7 @@ public class BuildManager : MonoBehaviour
     public delegate void OnPlaceTree();
     public event OnPlaceTree onTreePlaced;
 
+    private bool onSand = false;
     private Vector3 buildPosition;
     private int waterPriceCutting;
     private int waterPriceShield;
@@ -65,7 +67,7 @@ public class BuildManager : MonoBehaviour
         switch (eType)
         {
             case TreeType.Cutting:
-                treePrefab = cuttingPrefab;
+                treePrefab = onSand ? bushPrefab : cuttingPrefab;
                 waterCost = waterPriceCutting;
                 mineralCost = mineralsPriceCutting;
                 break;
@@ -123,11 +125,14 @@ public class BuildManager : MonoBehaviour
 
     public bool IsSaltGrounded()
     {
+        onSand = false;
         Collider[] cols = Physics.OverlapSphere(buildPosition, 0.5f, GameManager.Instance.groundLayer);
         for (int i = 0; i < cols.Length; i++)
         {
             if (cols[i].gameObject.tag == GameManager.Instance.saltGroundTag)
                 return true;
+            if (cols[i].gameObject.tag == GameManager.Instance.sandGroundTag)
+                onSand = true;
         }
         return false;
     }

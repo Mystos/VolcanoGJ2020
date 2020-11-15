@@ -7,7 +7,6 @@ public class Tree : MonoBehaviour
     [HideInInspector] public bool isConnected = false;
     List<Tree> connectedTree;
     public TreeType type;
-    public float testRadius;
 
     public float Radius { get; private set; }
 
@@ -37,8 +36,6 @@ public class Tree : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, testRadius);
         if (GameManager.Instance == null)
             return;
 
