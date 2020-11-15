@@ -115,11 +115,11 @@ public class BuildManager : MonoBehaviour
         if (IsSaltGrounded() && !IsSanitized()) k = GameManager.Instance.saltFactor;
         waterPriceCutting = Mathf.CeilToInt(GameManager.Instance.cuttingWaterCost * k);
         waterPriceShield = Mathf.CeilToInt(GameManager.Instance.shieldWaterCost * k);
-        waterPriceSanitizer = Mathf.CeilToInt(GameManager.Instance.cuttingWaterCost * k);
+        waterPriceSanitizer = Mathf.CeilToInt(GameManager.Instance.sanitizerWaterCost * k);
 
-        mineralsPriceCutting = Mathf.CeilToInt(GameManager.Instance.cuttingWaterCost * k);
-        mineralsPriceShield = Mathf.CeilToInt(GameManager.Instance.cuttingWaterCost * k);
-        mineralsPriceSanitizer = Mathf.CeilToInt(GameManager.Instance.cuttingWaterCost * k);
+        mineralsPriceCutting = Mathf.CeilToInt(GameManager.Instance.cuttingMineralCost * k);
+        mineralsPriceShield = Mathf.CeilToInt(GameManager.Instance.shieldMineralCost * k);
+        mineralsPriceSanitizer = Mathf.CeilToInt(GameManager.Instance.sanitizerMineralCost * k);
     }
 
 

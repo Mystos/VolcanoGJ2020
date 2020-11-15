@@ -9230,7 +9230,12 @@ PrefabInstance:
     - target: {fileID: 160685251971685480, guid: 16fc597aa183c404ebcf3fc07a840b61,
         type: 3}
       propertyPath: m_Name
-      value: Volcan
+      value: Volcan Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 160685251971685480, guid: 16fc597aa183c404ebcf3fc07a840b61,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16fc597aa183c404ebcf3fc07a840b61, type: 3}
