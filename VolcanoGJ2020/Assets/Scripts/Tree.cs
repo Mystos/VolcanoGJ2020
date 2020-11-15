@@ -41,11 +41,28 @@ public class Tree : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, testRadius);
         if (GameManager.Instance == null)
             return;
-        //Gizmos.color = Color.red;
-        //Gizmos.DrawWireSphere(transform.position, Radius);
-        //Gizmos.DrawWireSphere(transform.position, 0.5f);
-        //Gizmos.color = Color.blue;
-        //Gizmos.DrawWireSphere(transform.position, GameManager.Instance.superMineralCheckRadius);
+
+        switch (type)
+        {
+            case TreeType.Cutting:
+                Gizmos.color = Color.green;
+                Gizmos.DrawWireSphere(transform.position, GameManager.Instance.superMineralCheckRadius);
+                break;
+            case TreeType.Shield:
+                Gizmos.color = Color.red;
+                Gizmos.DrawWireSphere(transform.position, GameManager.Instance.shieldRadius);
+                break;
+            case TreeType.Sanitizer:
+                Gizmos.color = Color.blue;
+                Gizmos.DrawWireSphere(transform.position, GameManager.Instance.sanitizeRadius);
+                break;
+            default:
+                break;
+        }
+
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, Radius);
+    
     }
 
     public enum TreeType
