@@ -97,6 +97,8 @@ public class BuildManager : MonoBehaviour
                     onTreePlaced.Invoke();
             }
         }
+
+        AudioManager.instance.Play("GrowTrees");
     }
 
     public bool CheckHovering(Vector2 mousePosition)

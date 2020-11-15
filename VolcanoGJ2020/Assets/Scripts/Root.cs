@@ -20,6 +20,8 @@ public class Root : MonoBehaviour
             line.SetPosition(i, points[i]);
         }
         line.SetPosition(line.positionCount - 1, end);
+        AudioManager.instance.Play("GrowRoots");
+
     }
 
     public void ProlongateRoot(Vector3 newPos)
@@ -33,6 +35,7 @@ public class Root : MonoBehaviour
             line.SetPosition(i + k, points[i]);
         }
         line.SetPosition(line.positionCount - 1, newPos);
+        AudioManager.instance.Play("GrowRoots");
 
         //int k = line.positionCount;
         //line.positionCount = k + 1;
