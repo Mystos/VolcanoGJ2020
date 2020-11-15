@@ -105,8 +105,12 @@ public class GameManager : MonoBehaviour
     [Header("Volcano")]
     public float minForce = 5;
     public float maxForce = 100;
+    public int minLavaCount = 5;
+    public int maxLavaCount = 20;
+    public float launchRadius = 5;
 
     // Private Variable
+    private Volcano[] volcanos;
     internal Tree motherTree;
     private List<Tree> listTree;
 
@@ -129,6 +133,7 @@ public class GameManager : MonoBehaviour
         motherTree = this.GetComponent<Tree>();
         listTree = new List<Tree>();
         listTree.Add(motherTree);
+        volcanos = FindObjectsOfType<Volcano>();
         LevelUp();
     }
 
@@ -184,6 +189,10 @@ public class GameManager : MonoBehaviour
                 break;
             case ERessourceType.coeur:
                 LevelUp();
+                foreach (Volcano volcano in volcanos)
+                {
+                    volcano.StartEruption();
+                }
                 break;
             default:
                 break;
