@@ -95,6 +95,10 @@ public class GameManager : MonoBehaviour
     public float randomScaleMaxFactor;
     public GameObject CurrentMotherTreeLevelModel;
 
+    [Space]
+    [Header("Volcano")]
+    public float minForce = 5;
+    public float maxForce = 5;
 
     // Private Variable
     internal Tree motherTree;
