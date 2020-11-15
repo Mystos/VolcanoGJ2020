@@ -15,15 +15,17 @@ public class MainMenu : MonoBehaviour
 
     public void Start()
     {
-        volumeSlider.value = PlayerPrefs.GetFloat("MasterVol", 0.75f);
-        volumeMusicSlider.value = PlayerPrefs.GetFloat("MusicVol", 0.75f);
-        volumeSoundSlider.value = PlayerPrefs.GetFloat("SoundVol", 0.75f);
-
 
         //Adds a listener to the main slider and invokes a method when the value changes.
         volumeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(volumeType.master); });
         volumeMusicSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(volumeType.music); });
         volumeSoundSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(volumeType.sound); });
+
+        volumeSlider.value = PlayerPrefs.GetFloat("MasterVol", 0.75f);
+        volumeMusicSlider.value = PlayerPrefs.GetFloat("MusicVol", 0.75f);
+        volumeSoundSlider.value = PlayerPrefs.GetFloat("SoundVol", 0.75f);
+
+
     }
 
     public void PlayGame()
