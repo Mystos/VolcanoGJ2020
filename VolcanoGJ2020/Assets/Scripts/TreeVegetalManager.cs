@@ -18,13 +18,13 @@ public class TreeVegetalManager : MonoBehaviour
     void Start()
     {
         tree = GetComponent<Tree>();
-        vegetalRenderer = Instantiate(vegetalRendererPrefab, tree.transform);
+        //vegetalRenderer = Instantiate(vegetalRendererPrefab, tree.transform);
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateVegetalZoneEffect(transform.position, radiusFactor * GetVegetalRadius(tree.Radius) * new Vector3(1, 1, 1));
+        //UpdateVegetalZoneEffect(transform.position, radiusFactor * GetVegetalRadius(tree.Radius) * new Vector3(1, 1, 1));
         reloadProgress += Time.deltaTime;
         if (reloadProgress >= reloadTime)
         {
