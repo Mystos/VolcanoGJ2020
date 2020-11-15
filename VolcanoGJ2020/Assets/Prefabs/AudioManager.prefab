@@ -46,7 +46,7 @@ MonoBehaviour:
   sounds:
   - name: Theme01
     clip: {fileID: 8300000, guid: 12aa8ec260d260444a3bcc7239b7be83, type: 3}
-    mixer: {fileID: 24300002, guid: 55177f1895e7c8f4da79a2aa7848a0ff, type: 2}
+    mixer: {fileID: 5221004320227367680, guid: 55177f1895e7c8f4da79a2aa7848a0ff, type: 2}
     volume: 1
     pitch: 1
     loop: 1
@@ -56,48 +56,48 @@ MonoBehaviour:
     mixer: {fileID: 5877103697082629091, guid: 55177f1895e7c8f4da79a2aa7848a0ff, type: 2}
     volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - name: GrowTrees
     clip: {fileID: 8300000, guid: e977756b4254c1646ae11288934dd79b, type: 3}
     mixer: {fileID: 5877103697082629091, guid: 55177f1895e7c8f4da79a2aa7848a0ff, type: 2}
     volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - name: DrawStone
     clip: {fileID: 8300000, guid: 1fc3017f0dc1a8d41ac892210c9adf61, type: 3}
     mixer: {fileID: 5877103697082629091, guid: 55177f1895e7c8f4da79a2aa7848a0ff, type: 2}
     volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - name: DrawWater
     clip: {fileID: 8300000, guid: 4b2a4279ba0e75244ab586a7633ce81e, type: 3}
     mixer: {fileID: 5877103697082629091, guid: 55177f1895e7c8f4da79a2aa7848a0ff, type: 2}
     volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - name: ShortEarthquake
     clip: {fileID: 8300000, guid: 61c0d718ae0ab1649bde49629ef488d4, type: 3}
     mixer: {fileID: 5877103697082629091, guid: 55177f1895e7c8f4da79a2aa7848a0ff, type: 2}
     volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - name: LongEarthquake
     clip: {fileID: 8300000, guid: 3121a1a212f92a44ebcc87517ad89c1b, type: 3}
     mixer: {fileID: 5877103697082629091, guid: 55177f1895e7c8f4da79a2aa7848a0ff, type: 2}
     volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - name: Explosion
     clip: {fileID: 8300000, guid: 57d3652e4134b7f419f610de5a5774ec, type: 3}
     mixer: {fileID: 5877103697082629091, guid: 55177f1895e7c8f4da79a2aa7848a0ff, type: 2}
     volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   mainMixer: {fileID: 24300002, guid: 55177f1895e7c8f4da79a2aa7848a0ff, type: 2}

@@ -20,7 +20,10 @@ public class LavaRock : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.C))
+        {
             Launch(transform.forward, GameManager.Instance.maxForce);
+
+        }
 
         lifeTime += Time.deltaTime;
         if (lifeTime > maxLifeTime)
@@ -31,5 +34,6 @@ public class LavaRock : MonoBehaviour
     {
         rigidbody.velocity = Vector3.zero;
         rigidbody.AddForce(force * direction);
+        AudioManager.instance.Play("Explosion");
     }
 }
