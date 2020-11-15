@@ -25,8 +25,9 @@ public class LavaRock : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 1 << GameManager.Instance.treeLayer)
+        if (other.gameObject.tag == GameManager.Instance.vegetalTag)
         {
+            GameManager.Instance.Score--;
             Destroy(other.gameObject);
             Destroy(gameObject);
         }

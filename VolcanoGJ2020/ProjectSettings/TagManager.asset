@@ -12,6 +12,7 @@ TagManager:
   - saltGround
   - ressource
   - ramp
+  - vegetal
   layers:
   - Default
   - TransparentFX

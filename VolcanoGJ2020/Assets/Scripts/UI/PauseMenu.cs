@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -110,7 +110,6 @@ public class PauseMenu : MonoBehaviour
         {
             winMenuUI.SetActive(true);
             AudioManager.instance.Play("FinishLevel");
-
         }
     }
 
