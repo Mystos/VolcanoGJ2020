@@ -15,6 +15,19 @@ public class CameraController : MonoBehaviour
     public float minRotX = 20f;
     public float maxRotX = 90f;
     public bool ActivateBorderControls = true;
+    public Vector3 startPos;
+    public float startRotY;
+
+    private void Start()
+    {
+        transform.position = startPos;
+        Quaternion rotParent = transform.rotation;
+        Quaternion rotMain = mainCamera.rotation;
+        rotMain.eulerAngles = new Vector3(rotMain.eulerAngles.x, startRotY, rotMain.eulerAngles.z);
+        rotParent.eulerAngles = new Vector3(rotParent.eulerAngles.x, startRotY, rotParent.eulerAngles.z);
+        transform.rotation = rotParent;
+        mainCamera.rotation = rotMain;
+    }
 
     // Update is called once per frame
     void Update()
