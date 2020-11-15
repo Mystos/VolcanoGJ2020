@@ -6109,7 +6109,7 @@ MonoBehaviour:
     type: 3}
   sanitizerPrefab: {fileID: 9128932218613544492, guid: e7101050766d7c846bca522add7d432d,
     type: 3}
-  bushPrefab: {fileID: 9128932218613544492, guid: fe3b1f5fd24261e43a384a59fdc06361,
+  bushPrefab: {fileID: 9128932218613544492, guid: 3d49a676b327c7f4296b038aaf437e31,
     type: 3}
   panelTransform: {fileID: 5303490898755287868}
   waterPriceCuttingTxt: {fileID: 5989767121601904326}
