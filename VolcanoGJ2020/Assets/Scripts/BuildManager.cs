@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static Tree;
@@ -12,12 +13,12 @@ public class BuildManager : MonoBehaviour
     public GameObject bushPrefab;
 
     public RectTransform panelTransform;
-    public Text waterPriceCuttingTxt;
-    public Text waterPriceShieldTxt;
-    public Text waterPriceSanitizerTxt;
-    public Text mineralsPriceCuttingTxt;
-    public Text mineralsPriceShieldTxt;
-    public Text mineralsPriceSanitizerTxt;
+    public TextMeshProUGUI waterPriceCuttingTxt;
+    public TextMeshProUGUI waterPriceShieldTxt;
+    public TextMeshProUGUI waterPriceSanitizerTxt;
+    public TextMeshProUGUI mineralsPriceCuttingTxt;
+    public TextMeshProUGUI mineralsPriceShieldTxt;
+    public TextMeshProUGUI mineralsPriceSanitizerTxt;
 
     public delegate void OnPlaceTree();
     public event OnPlaceTree onTreePlaced;
