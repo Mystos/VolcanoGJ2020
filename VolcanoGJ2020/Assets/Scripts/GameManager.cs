@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -237,7 +237,7 @@ public class GameManager : MonoBehaviour
         }
 
         CurrentMotherTreeLevelModel.SetActive(true);
-        AudioManager.instance.Play("DrawMinerals");
+        AudioManager.instance.Play("LevelUp");
 
     }
 
