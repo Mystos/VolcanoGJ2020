@@ -24,34 +24,38 @@ public class TreeVegetalManager : MonoBehaviour
         reloadProgress += Time.deltaTime;
         if (reloadProgress >= reloadTime)
         {
-            if(nbrPlant < GameManager.Instance.maxPlant)
+            if(GameManager.Instance.vegetalAssets.Count > 0)
             {
-                GameObject randomAsset = GameManager.Instance.vegetalAssets[Mathf.FloorToInt(Random.Range(0, (float)GameManager.Instance.vegetalAssets.Count))];
-                GameObject go = Instantiate(randomAsset, tree.transform);
-
-                go.transform.position = RandomPosInCircle(GetVegetalRadius(tree.Radius)) + new Vector3(0,0.2f,0);
-                Quaternion rot = go.transform.rotation;
-                rot.eulerAngles = new Vector3(rot.eulerAngles.x, Random.Range(-180, 180), rot.eulerAngles.z);
-                go.transform.rotation = rot;
-
-                float randomScale = Random.Range(GameManager.Instance.randomScaleMinFactor, GameManager.Instance.randomScaleMaxFactor);
-                go.transform.localScale = new Vector3(randomScale/100, randomScale / 100, randomScale / 100);
-
-                if(Physics.Raycast(new Ray(go.transform.position, Vector3.down), out RaycastHit hit, 10, GameManager.Instance.groundLayer))
+                if (nbrPlant < GameManager.Instance.maxPlant)
                 {
-                    if (hit.transform.gameObject.tag == GameManager.Instance.groundTag ||
-                    hit.transform.gameObject.tag == GameManager.Instance.sandGroundTag ||
-                    hit.transform.gameObject.tag == GameManager.Instance.saltGroundTag)
+                    GameObject randomAsset = GameManager.Instance.vegetalAssets[Mathf.FloorToInt(Random.Range(0, (float)GameManager.Instance.vegetalAssets.Count))];
+                    GameObject go = Instantiate(randomAsset, tree.transform);
+
+                    go.transform.position = RandomPosInCircle(GetVegetalRadius(tree.Radius)) + new Vector3(0, 0.2f, 0);
+                    Quaternion rot = go.transform.rotation;
+                    rot.eulerAngles = new Vector3(rot.eulerAngles.x, Random.Range(-180, 180), rot.eulerAngles.z);
+                    go.transform.rotation = rot;
+
+                    float randomScale = Random.Range(GameManager.Instance.randomScaleMinFactor, GameManager.Instance.randomScaleMaxFactor);
+                    go.transform.localScale = new Vector3(randomScale / 100, randomScale / 100, randomScale / 100);
+
+                    if (Physics.Raycast(new Ray(go.transform.position, Vector3.down), out RaycastHit hit, 10, GameManager.Instance.groundLayer))
                     {
-                        nbrPlant++;
+                        if (hit.transform.gameObject.tag == GameManager.Instance.groundTag ||
+                        hit.transform.gameObject.tag == GameManager.Instance.sandGroundTag ||
+                        hit.transform.gameObject.tag == GameManager.Instance.saltGroundTag)
+                        {
+                            nbrPlant++;
+                        }
                     }
-                }
-                else
-                {
-                    Destroy(go);
-                }
+                    else
+                    {
+                        Destroy(go);
+                    }
 
+                }
             }
+
             reloadProgress = 0;
             reloadTime = Random.Range(0.5f,1.5f);
 
