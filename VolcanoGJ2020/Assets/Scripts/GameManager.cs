@@ -157,21 +157,27 @@ public class GameManager : MonoBehaviour
         {
             case ERessourceType.waterPuddle:
                 water += waterPuddle;
+                AudioManager.instance.Play("DrawWater");
                 break;
             case ERessourceType.waterPond:
                 water += waterPond;
+                AudioManager.instance.Play("DrawWater");
                 break;
             case ERessourceType.waterLake:
                 water += waterLake;
+                AudioManager.instance.Play("DrawWater");
                 break;
             case ERessourceType.oxides:
                 minerals += oxides;
+                AudioManager.instance.Play("DrawMinerals");
                 break;
             case ERessourceType.halogens:
                 minerals += halogens;
+                AudioManager.instance.Play("DrawMinerals");
                 break;
             case ERessourceType.nitrates:
                 minerals += nitrates;
+                AudioManager.instance.Play("DrawMinerals");
                 break;
             case ERessourceType.coeur:
                 LevelUp();
@@ -230,6 +236,8 @@ public class GameManager : MonoBehaviour
         }
 
         CurrentMotherTreeLevelModel.SetActive(true);
+        AudioManager.instance.Play("DrawMinerals");
+
     }
 
 
