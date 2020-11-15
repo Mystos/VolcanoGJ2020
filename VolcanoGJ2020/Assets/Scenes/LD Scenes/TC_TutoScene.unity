@@ -2223,6 +2223,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &210076138 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5481104191459266334, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 645540429}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &234721884
 GameObject:
   m_ObjectHideFlags: 0
@@ -6817,6 +6823,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1528133064}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &807587495 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4600529544330548699, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 645540429}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &831251096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8634,12 +8646,12 @@ MonoBehaviour:
   maxNbrPlantLvl4: 200
   maxNbrPlantLvl5: 300
   maxNbrPlantLvl6: 300
-  prefabMotherTreeLvl1: {fileID: 0}
-  prefabMotherTreeLvl2: {fileID: 0}
-  prefabMotherTreeLvl3: {fileID: 0}
-  prefabMotherTreeLvl4: {fileID: 0}
-  prefabMotherTreeLvl5: {fileID: 0}
-  prefabMotherTreeLvl6: {fileID: 0}
+  prefabMotherTreeLvl1: {fileID: 1948524762}
+  prefabMotherTreeLvl2: {fileID: 210076138}
+  prefabMotherTreeLvl3: {fileID: 1741194028}
+  prefabMotherTreeLvl4: {fileID: 807587495}
+  prefabMotherTreeLvl5: {fileID: 1597295025}
+  prefabMotherTreeLvl6: {fileID: 1402953678}
   maxPlant: 0
   vegetalAssets: []
   randomScaleMinFactor: 0
@@ -16888,6 +16900,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1402953678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3414191038355891831, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 645540429}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1404628776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17702,6 +17720,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1597295025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7432141146100319541, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 645540429}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1608362689
 GameObject:
   m_ObjectHideFlags: 0
@@ -18538,6 +18562,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1741194028 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4279696563234122264, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 645540429}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1750447331 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 784eab418a9c8d7429f5a06391660f83,
@@ -26008,6 +26038,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &1948524762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7437574175237413533, guid: 67567868fd7d7aa429bcbee4808cb2a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 645540429}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1956248316
 GameObject:
   m_ObjectHideFlags: 0
