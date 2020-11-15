@@ -46,6 +46,7 @@ public class TreeVegetalManager : MonoBehaviour
                         hit.transform.gameObject.tag == GameManager.Instance.saltGroundTag)
                         {
                             nbrPlant++;
+                            GameManager.Instance.Score++;
                         }
                     }
                     else
