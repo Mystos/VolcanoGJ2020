@@ -5715,18 +5715,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 690331271}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &690331273 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1474324392126156817, guid: 6d4fbf51aede3324296964b186dba0e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 690331271}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ccb4b47a610b2468689ac20ff868ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &700148657 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3841418739899400763, guid: fa0b4d555186e76449deef7160dc3ec9,
@@ -13590,7 +13578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9c9290556c5d743816f35c323e2e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildManager: {fileID: 690331273}
   radiusFactor: 1.15
   radiusRenderer: {fileID: 61456065}
   rootPrefab: {fileID: 1701899383269479438, guid: 9da4da8c515f93240ba3734a1324bcd7,
@@ -16063,6 +16050,7 @@ MonoBehaviour:
   sandGroundTag: sandGround
   ressourceTag: ressource
   rampTag: ramp
+  levelMaxNbrHeart: 5
   water: 0
   minerals: 0
   cheatActivate: 0
@@ -16285,213 +16273,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[2].name
-      value: GrowTrees
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: e977756b4254c1646ae11288934dd79b, type: 3}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[2].mixer
-      value: 
-      objectReference: {fileID: 5877103697082629091, guid: 55177f1895e7c8f4da79a2aa7848a0ff,
-        type: 2}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[2].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[2].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[2].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[3].name
-      value: DrawStone
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[3].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 1fc3017f0dc1a8d41ac892210c9adf61, type: 3}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[3].mixer
-      value: 
-      objectReference: {fileID: 5877103697082629091, guid: 55177f1895e7c8f4da79a2aa7848a0ff,
-        type: 2}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[3].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[3].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[3].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[4].name
-      value: DrawWater
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[4].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4b2a4279ba0e75244ab586a7633ce81e, type: 3}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[4].mixer
-      value: 
-      objectReference: {fileID: 5877103697082629091, guid: 55177f1895e7c8f4da79a2aa7848a0ff,
-        type: 2}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[4].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[4].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[4].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[1].name
-      value: GrowRoots
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 972708530f79487438be51ad89643c62, type: 3}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[1].mixer
-      value: 
-      objectReference: {fileID: 5877103697082629091, guid: 55177f1895e7c8f4da79a2aa7848a0ff,
-        type: 2}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[5].name
-      value: ShortEarthquake
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[5].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 61c0d718ae0ab1649bde49629ef488d4, type: 3}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[5].mixer
-      value: 
-      objectReference: {fileID: 5877103697082629091, guid: 55177f1895e7c8f4da79a2aa7848a0ff,
-        type: 2}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[5].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[5].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[5].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[6].name
-      value: LongEarthquake
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[6].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 3121a1a212f92a44ebcc87517ad89c1b, type: 3}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[6].mixer
-      value: 
-      objectReference: {fileID: 5877103697082629091, guid: 55177f1895e7c8f4da79a2aa7848a0ff,
-        type: 2}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[6].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[6].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[6].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[7].name
-      value: Explosion
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[7].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 57d3652e4134b7f419f610de5a5774ec, type: 3}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[7].mixer
-      value: 
-      objectReference: {fileID: 5877103697082629091, guid: 55177f1895e7c8f4da79a2aa7848a0ff,
-        type: 2}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[7].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[7].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4078974658934422800, guid: e3f9774897ce0fc4db7918ee74472a63,
-        type: 3}
-      propertyPath: sounds.Array.data[7].loop
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4078974658934422801, guid: e3f9774897ce0fc4db7918ee74472a63,
         type: 3}
       propertyPath: m_Name
