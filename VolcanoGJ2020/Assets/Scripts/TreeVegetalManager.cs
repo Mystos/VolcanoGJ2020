@@ -69,7 +69,7 @@ public class TreeVegetalManager : MonoBehaviour
 
     public Vector3 RandomPosInCircle(float radius)
     {
-        float randomR = radius * Mathf.Sqrt(Random.Range(0f, 1f));
+        float randomR = radius * Mathf.Sqrt(Random.Range(GameManager.Instance.minSpawnRadius, 1f));
         float randomTheta = Random.Range(0f, 1f) * 2 * Mathf.PI;
 
         float x = transform.position.x + randomR * Mathf.Cos(randomTheta);
